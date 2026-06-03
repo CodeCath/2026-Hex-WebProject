@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <!-- Nav Bar 導覽 -->
+    <nav class="navbar ">
+    <div class="container d-flex justify-between align-center">
+        
+        <a href="#" class="navbar__logo">
+        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/47001d42324ec6a2c7d00cc74ea79d70c57d578a/2026-web-camp/device-pc.svg" alt="Nelson Logo">
+        </a>
+        
+        <ul class="navbar__menu d-flex align-center">
+        <li><a href="#" class="navbar__link text-md">服務項目</a></li>
+        <li><a href="#" class="navbar__link text-md">專案作品</a></li>
+        <li><a href="#" class="navbar__link text-md">部落格</a></li>
+        <li><a href="#" class="navbar__link text-md">與我聯絡</a></li>
+        </ul>
+        
+    </div>
+    </nav>
+
+    <!-- 首頁視覺區 (Hero Section) -->
+    <header class="hero">
+    <!-- 使用我們設定好的 d-flex 與 align-center 讓左右垂直置中 -->
+    <div class="container d-flex align-center">
+        
+        <!-- 左側：文字與按鈕區塊 -->
+        <div class="hero__content">
+        <h1 class="title-xxxl">Hello<br>I’m Nelson</h1>
+        
+        <!-- 內文：套用 text-md 與深灰色 -->
+        <p class="hero__desc text-md text-neutral-700">
+            我是一個擁有 10 年經驗的 UIUX 設計師 和 前端工程師<br>
+            喜歡把美學和程式結合，打造一個又一個精美的網頁設計！
+        </p>
+        
+        <!-- 按鈕區塊：再次使用 Flexbox 排列 -->
+        <div class="hero__actions d-flex">
+            <!-- 🎯 修正處：將 bg-primary-900 替換為 bg-neutral-700 (#404040) -->
+            <a href="#" class="btn bg-neutral-700 text-white text-md">與我聯絡</a>
+            <!-- 外框按鈕 (透明底、深灰字，並加上邊框樣式) -->
+            <a href="#" class="btn btn-outline bg-transparent text-neutral-700 text-md">我的履歷</a>
+        </div>
+        </div>
+
+        <!-- 右側：照片區塊 -->
+        <div class="hero__image">
+        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/refs/heads/main/2026-web-camp/index_person.png" alt="Nelson Portrait">
+        </div>
+        
+    </div>
+    </header>
+
+    <!-- SERVICES 服務項目區塊 -->
+    <section class="services bg-primary-900 text-white">
+    <div class="container">
+        
+        <!-- 區塊標題 -->
+        <!-- mb-6 是我們之前設定的 margin-bottom: 24px (可依設計稿微調) -->
+        <div class="services__header mb-6">
+        <p class="title-xxxs">服務項目</p>
+        <h2 class="title-xxxl">SERVICES</h2>
+        </div>
+
+<!-- 服務卡片列表容器 -->
+    <div class="services__list">
+      
+      <!-- 卡片 1：平面設計 -->
+      <div class="service-card bg-neutral-0 text-neutral-900">
+        <!-- 上半部：標題群組 (左) 與 Icon (右) -->
+        <div class="service-card__header d-flex justify-between">
+          <div class="d-flex flex-column">
+            <span class="title-xxxs">GRAPHIC</span>
+            <h3 class="title-md">平面設計</h3>
+          </div>
+          <span class="material-symbols-outlined card-icon">format_color_fill</span>
+        </div>
+        
+        <!-- 下半部：內文 (左) 與 按鈕 (右) -->
+        <div class="service-card__bottom d-flex">
+          <p class="text-md text-neutral-500">從品牌識別到視覺傳達，用專業設計精準傳遞核心價值</p>
+          <a href="#" class="btn-circle bg-neutral-700 text-white">↗</a>
+        </div>
+      </div>
+
+      <!-- 卡片 2：網頁設計 -->
+      <div class="service-card bg-neutral-0 text-neutral-900">
+        <div class="service-card__header d-flex justify-between">
+          <div class="d-flex flex-column">
+            <span class="title-xxxs">WEBSITE</span>
+            <h3 class="title-md">網頁設計</h3>
+          </div>
+          <span class="material-symbols-outlined card-icon">screenshot_monitor</span>
+        </div>
+        <div class="service-card__bottom d-flex">
+          <p class="text-md text-neutral-500">美感與實用並重，以 Figma 打造符合直覺的數位體驗</p>
+          <a href="#" class="btn-circle bg-neutral-700 text-white">↗</a>
+        </div>
+      </div>
+
+      <!-- 卡片 3：前端切版 -->
+      <div class="service-card bg-neutral-0 text-neutral-900">
+        <div class="service-card__header d-flex justify-between">
+          <div class="d-flex flex-column">
+            <span class="title-xxxs">FRONTEND</span>
+            <h3 class="title-md">前端切版</h3>
+          </div>
+          <span class="material-symbols-outlined card-icon">web</span>
+        </div>
+        <div class="service-card__bottom d-flex">
+          <p class="text-md text-neutral-500">精準轉譯設計稿細節，建構流暢穩定 RWD 響應式網頁</p>
+          <a href="#" class="btn-circle bg-neutral-700 text-white">↗</a>
+        </div>
+      </div>
+
+      <!-- 卡片 4：後端開發 -->
+      <div class="service-card bg-neutral-0 text-neutral-900">
+        <div class="service-card__header d-flex justify-between">
+          <div class="d-flex flex-column">
+            <span class="title-xxxs">BACKEND</span>
+            <h3 class="title-md">後端開發</h3>
+          </div>
+          <span class="material-symbols-outlined card-icon">data_table</span>
+        </div>
+        <div class="service-card__bottom d-flex">
+          <p class="text-md text-neutral-500">佈署穩定系統架構，串接 API 並確保數據處理安全</p>
+          <a href="#" class="btn-circle bg-neutral-700 text-white">↗</a>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    </section>
+
+</body>
+</html>

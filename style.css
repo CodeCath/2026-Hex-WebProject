@@ -1,0 +1,315 @@
+/* =========================================
+   Base Reset (基礎重置)
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  /* 預設為淺色底、深色字 */
+  background-color: var(--color-primary-50); 
+  color: var(--color-neutral-700);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 移除列表與連結的預設樣式 (這對導覽列很重要) */
+ul, ol { list-style: none; }
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   OOCSS: 共用外觀 (Skins) - 顏色與排版
+   ========================================= */
+/* =========================================
+   1. Design System Tokens (全域色彩變數)
+   ========================================= */
+:root {
+  /* Primary (主色系) */
+  --color-primary-50: #FDF7F1;
+  --color-primary-100: #FDE6CF;
+  --color-primary-500: #F5B87B;
+  --color-primary-900: #24140B;
+
+  /* Neutral (中性色/灰階) */
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-500: #737373;
+  --color-neutral-700: #404040;
+  --color-neutral-900: #1E1E1E;
+
+  /* Dark (透明度遮罩) */
+  --color-dark-40a: rgba(0, 0, 0, 0.4);
+  --color-dark-60a: rgba(0, 0, 0, 0.6);
+
+  --font-family-base: "Noto Sans", sans-serif;
+}
+
+/* =========================================
+   2. OOCSS: Background Colors (背景色積木)
+   ========================================= */
+.bg-primary-50  { background-color: var(--color-primary-50); }
+.bg-primary-100 { background-color: var(--color-primary-100); }
+.bg-primary-500 { background-color: var(--color-primary-500); }
+.bg-primary-900 { background-color: var(--color-primary-900); }
+
+.bg-neutral-0   { background-color: var(--color-neutral-0); }
+.bg-neutral-500 { background-color: var(--color-neutral-500); }
+.bg-neutral-700 { background-color: var(--color-neutral-700); }
+.bg-neutral-900 { background-color: var(--color-neutral-900); }
+
+.bg-dark-40a    { background-color: var(--color-dark-40a); }
+.bg-dark-60a    { background-color: var(--color-dark-60a); }
+.bg-transparent { background-color: transparent; }
+
+/* =========================================
+   3. OOCSS: Text Colors (文字顏色積木)
+   ========================================= */
+/* 這裡我挑選了最常用於文字的顏色來建立 Class，避免產生過多用不到的程式碼 */
+.text-primary-500 { color: var(--color-primary-500); }
+.text-primary-900 { color: var(--color-primary-900); }
+
+.text-white       { color: var(--color-neutral-0); } /* 習慣上把 neutral-0 叫 white，語意更直覺 */
+.text-neutral-500 { color: var(--color-neutral-500); } /* 適合用於次要資訊、日期 */
+.text-neutral-700 { color: var(--color-neutral-700); } /* 適合用於主要標題與內文 */
+.text-neutral-900 { color: var(--color-neutral-900); }
+
+/* =========================================
+   OOCSS: Typography (字體積木) 
+   Family: 預設皆為 Noto Sans (於 body 設定)
+   ========================================= */
+
+/* --- Display (特大展示字體) | Weight: 700, Line-height: 1.2 --- */
+.display-1 { font-size: 300px; font-weight: 700; line-height: 1.2; }
+.display-2 { font-size: 160px; font-weight: 700; line-height: 1.2; }
+
+/* --- Heading (標題系統) | Weight: 700 --- */
+.title-xxxl  { font-size: 80px; font-weight: 700; line-height: 1.2; }
+.title-xxl   { font-size: 48px; font-weight: 700; line-height: 1.2; }
+.title-xl    { font-size: 40px; font-weight: 700; line-height: 1.2; }
+/* 從 Large 開始，行高變成 1.5 (150%) */
+.title-lg    { font-size: 32px; font-weight: 700; line-height: 1.5; }
+.title-md    { font-size: 28px; font-weight: 700; line-height: 1.5; }
+.title-sm    { font-size: 24px; font-weight: 700; line-height: 1.5; }
+.title-xs    { font-size: 20px; font-weight: 700; line-height: 1.5; }
+.title-xxs   { font-size: 18px; font-weight: 700; line-height: 1.5; }
+.title-xxxs  { font-size: 16px; font-weight: 700; line-height: 1.5; }
+.title-xxxxs { font-size: 14px; font-weight: 700; line-height: 1.5; }
+
+/* --- Label / Paragraph (標籤與內文) | Weight: 500, Line-height: 1.5 --- */
+/* Noto Sans 的 500 通常對應 CSS 的 medium，若載入的字體只有 400/700，可改為 400 或 normal */
+.text-md { font-size: 16px; font-weight: 500; line-height: 1.5; }
+.text-sm { font-size: 14px; font-weight: 500; line-height: 1.5; }
+.text-xs { font-size: 13px; font-weight: 500; line-height: 1.5; }
+
+/* 預設為桌機版樣式 */
+
+/* 平板尺寸 (Tablet) - 小於 992px */
+@media (max-width: 991.98px) {
+  /* 之後平板的覆寫寫這裡 */
+}
+
+/* 手機尺寸 (Mobile) - 小於 768px */
+@media (max-width: 767.98px) {
+  /* 之後手機的覆寫寫這裡，例如要把 Display 字體大幅縮小 */
+}
+
+/* =========================================
+   OOCSS: Layout Tools (排版積木)
+   ========================================= */
+/* 文字對齊 */
+.text-center { text-align: center; }
+
+/* Flexbox 快捷設定 (保持單一職責) */
+.d-flex         { display: flex; }
+.flex-column    { flex-direction: column; }
+.align-center   { align-items: center; }
+.justify-between{ justify-content: space-between; }
+.justify-center { justify-content: center; }
+
+/* 常用的通用間距 */
+.mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-6 { margin-bottom: 24px; }
+
+/* =========================================
+   OOCSS: 結構物件 (Objects) - 骨架
+   ========================================= */
+/* 按鈕基礎骨架 (無顏色) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px; /* 預設間距 */
+  border-radius: 40px; /* 圓角結構 */
+  border: 1px solid transparent; /* 預留給外框按鈕 */
+  cursor: pointer;
+  transition: all 0.3s ease; /* 互動過場 */
+}
+
+/* 按鈕外觀擴充 (實心/外框) */
+.btn-outline {
+  border-color: currentColor; /* 外框顏色跟隨文字顏色 */
+}
+
+/* =========================================
+   Layout Container (全域容器)
+   ========================================= */
+.container {
+  max-width: 1320px; 
+  padding: 0 12px;
+  margin: 0 auto;
+}
+
+/*  開始  */
+/* =========================================
+   Components: Nav Bar
+   ========================================= */
+.navbar {
+  padding: 20px 0; /* 上下內距，請依據 Figma 實際數值調整 */
+}
+
+.navbar__menu {
+  gap: 32px; /* 選單項目之間的距離 */
+}
+
+/* 互動細節 (Micro-interactions) */
+.navbar__link {
+  transition: opacity 0.3s ease; /* 加入平滑過場 */
+}
+
+.navbar__link:hover {
+  opacity: 0.7; /* 游標移上去時稍微變暗，提升使用者體驗 */
+}
+
+/* 針對 SVG Logo 的防呆設定 */
+.navbar__logo {
+  display: flex; /* 讓 <a> 標籤貼合圖片，避免產生下方多餘空白 */
+  align-items: center;
+}
+
+.navbar__logo img {
+  display: block;
+  /* 這裡預設給個高度，你可以依據 Figma 裡 Logo 的實際高度數字做調整，例如 24px 或 32px */
+  height: 24px; 
+  width: auto;
+}
+
+/* =========================================
+   Components: Hero Section
+   ========================================= */
+.hero {
+  /* 視 Figma 整體上下留白調整 */
+  /* padding: 40px 0;  */
+}
+
+/* 針對 Hero 裡面的 Flex 容器設定間距 */
+.hero .container {
+  /* ✨ 這裡就是你截圖中抓到的關鍵 24px！ */
+  gap: 24px; 
+}
+
+/* 左側文字區塊：讓它自動填滿剩餘的空間 */
+.hero__content {
+  flex: 1; 
+}
+
+/* 調整內文的上下間距 (請依據 Figma 標示的行距微調) */
+.hero__desc {
+  margin-top: 24px;
+  margin-bottom: 60px; 
+}
+
+/* 按鈕之間的間距 */
+.hero__actions {
+  gap: 24px; 
+}
+
+/* 右側圖片區塊 */
+.hero__image {
+  /* ✨ 這裡對應你截圖中的 746px 寬度 */
+  flex: 0 0 746px; 
+  max-width: 55%; /* 加個保險：螢幕變小時，圖片最多佔 55% 寬度，避免文字被擠壓 */
+}
+
+
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 加入這行，消除圖片下方的幽靈神祕空隙 */
+  display: block; 
+}
+
+/* =========================================
+   Components: Services Section
+   ========================================= */
+.services {
+  padding: 80px 0; /* 區塊上下留白 */
+}
+
+.services__header h2 {
+  margin-top: 8px; /* 微調小標題跟大標題的間距 */
+}
+
+/* 🎯 這裡就是 CSS Grid！只要這 3 行，版面自動切成 4 等份 */
+.services__list {
+  display: grid; 
+  /* 
+     翻譯蒟蒻：
+     repeat(4, ...) 意思是「重複 4 次」
+     1fr (Fraction) 意思是「1 等份的剩餘空間」
+     整句的意思就是：幫我畫 4 個欄位 (Columns)，每一個都佔 1 等份 (等寬)！
+  */
+  grid-template-columns: repeat(4, 3fr); 
+  
+  /* 這就等於 Figma 裡的 Gutter */
+  gap: 24px; 
+}
+
+/* =========================================
+   Components: Service Card
+   ========================================= */
+.service-card {
+  /* 根據你的截圖，更新為 24px */
+  padding: 24px; 
+  /* 保底高度，讓它未滿 174px 時也能撐開，超過時自動長高 */
+  min-height: 174px; 
+  display: flex;
+  flex-direction: column; 
+}
+
+.card-icon {
+  font-size: 21px;
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0; 
+}
+
+/* 下半部群組 */
+.service-card__bottom {
+  /* 這裡維持不變，讓內文與按鈕同行並推到底部 */
+  margin-top: 12px; 
+  gap: 12px; 
+  align-items: flex-end; 
+  margin-top: auto; 
+  padding-top: 12px; 
+}
+
+/* 🎯 根據數據：右下 button 更新為 48px * 48px */
+.btn-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;  /* 更新尺寸 */
+  height: 48px; /* 更新尺寸 */
+  border-radius: 50%; 
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  flex-shrink: 0; /* 絕對防禦：防止按鈕被長文字擠壓變形 */
+}
+
+.btn-circle:hover {
+  opacity: 0.8;
+}
