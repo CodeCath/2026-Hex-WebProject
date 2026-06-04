@@ -405,10 +405,10 @@ a { text-decoration: none; color: inherit; }
    ========================================= */
 @media (max-width: 767.98px) {
   
-  .hero {
+  /* .hero { */
     /* 🎯 關鍵 3：手機版因為變成「上圖下文」，文字被擠到最下面，必須把底部的呼吸空間補回來，才不會跟下一個區塊黏在一起 */
-    padding-bottom: 80px; 
-  }
+    /* padding-bottom: 80px; 
+  } */
 
   .hero .container {
     flex-direction: column-reverse; 
@@ -433,6 +433,19 @@ a { text-decoration: none; color: inherit; }
   }
 
   /* 隱藏/微調手機版裝飾圖 */
+.decora-1 {
+  top: 10%; 
+  left: -8%;
+  width: 80px;
+  z-index: 2; /* 這塊特例，要壓在照片上方 */
+}
+.decora-2 {
+      width: 80px;
+  bottom: 10%; 
+  right: -10%;
+  z-index: 2;
+}
+
   .decora-3 {
     top: 0; 
     left: 0;
@@ -676,6 +689,66 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
+   📱 RWD: Projects 專案作品 (平板與手機尺寸)
+   ========================================= */
+@media (max-width: 991.98px) {
+  
+  .projects {
+    /* 🎯 根據截圖上下的紅底標示，修改為 40px */
+    padding: 40px 0; 
+  }
+
+  .projects__list {
+    /* 🎯 根據截圖右側面板數據，卡片間距縮小為 24px */
+    gap: 24px; 
+  }
+
+/* 1. 破除桌機版的 Grid，並加上 relative 作為絕對定位的基準點！ */
+  .project-card {
+    display: block; /* 不需要 Flex 了，因為我們要用絕對定位 */
+    position: relative; 
+  }
+
+  /* 2. 圖片區塊維持完美的直向海報比例 */
+  .project-card__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 351 / 580; 
+  }
+
+  .project-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* 3. 🎯 核心進化：白色內容卡片完全收入背景圖內！ */
+  .project-card__content {
+    /* 解除桌機版寫死的寬高 */
+    width: auto;
+    height: auto;
+    
+    /* 🎯 放棄 margin，改用絕對定位！
+       這會讓白色卡片浮起來，並且精準釘在距離左右下各 16px 的位置 */
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    margin: 0; /* 徹底清除上一版的負邊距 */
+    
+    padding: 24px; 
+    text-align: center;
+    align-items: center; /* 讓內部的按鈕乖乖置中 */
+  }
+
+  /* 4. 覆寫按鈕的對齊方式 */
+  .project-card__content .btn {
+    align-self: center; 
+  }
+}
+
+/* =========================================
    Components: Blogs Section
    ========================================= */
 .blogs {
@@ -765,6 +838,58 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   line-height: 1; 
 }
+
+/* =========================================
+   📱 RWD: Blogs 部落格 (手機尺寸小於 768px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  
+  .blogs {
+    padding: 60px 0; /* 手機版縮小區塊上下留白 */
+  }
+
+  .blogs__header {
+    margin-bottom: 24px; /* 拉近標題與卡片的距離 */
+  }
+
+  .blogs__list {
+    /* 1. 破除 Grid，啟動水平排版 */
+    display: flex;
+    flex-wrap: nowrap;
+    
+    /* 2. 開啟水平滾動 */
+    overflow-x: auto;
+    
+    /* 3. 突破 Container 限制，讓卡片可以滑到螢幕邊緣 */
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    
+    /* 4. 開啟平滑的滾動吸附功能 */
+    scroll-snap-type: x mandatory;
+    
+    /* 5. 隱藏系統滾動條 */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .blogs__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .blog-card {
+    /* 🎯 根據你的精準數據：鎖定卡片寬度為 260px */
+    flex: 0 0 260px; 
+    scroll-snap-align: start; 
+  }
+
+  .blog-card__image {
+    /* 卡片變窄了，圖片高度也跟著微調，視覺比例才會協調 */
+    height: 180px; 
+  }
+}
+
 
 /* =========================================
    Components: Subscription Section
