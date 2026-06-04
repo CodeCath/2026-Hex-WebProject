@@ -3,60 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <title>Document</title>
 </head>
 <body>
     <!-- Nav Bar 導覽 -->
-    <nav class="navbar ">
+    <nav class="navbar bg-primary-50">
     <div class="container d-flex justify-between align-center">
         
         <a href="#" class="navbar__logo">
-        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/47001d42324ec6a2c7d00cc74ea79d70c57d578a/2026-web-camp/device-pc.svg" alt="Nelson Logo">
+        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/47001d42324ec6a2c7d00cc74ea79d70c57d578a/2026-web-camp/device-pc.svg" alt="Nelson Logo"> 
         </a>
+
+        <button class="navbar__toggle" id="menu-toggle">
+        <span class="material-symbols-outlined">dehaze</span>
+        </button>
+
+        <div class="navbar__collapse" id="navbar-collapse">
+        <div class="navbar__overlay" id="menu-overlay"></div>
         
-        <ul class="navbar__menu d-flex align-center">
-        <li><a href="#" class="navbar__link text-md">服務項目</a></li>
-        <li><a href="#" class="navbar__link text-md">專案作品</a></li>
-        <li><a href="#" class="navbar__link text-md">部落格</a></li>
-        <li><a href="#" class="navbar__link text-md">與我聯絡</a></li>
-        </ul>
-        
+        <div class="navbar__menu-wrapper bg-primary-50">
+            
+            <div class="navbar__mobile-header d-flex justify-between align-center">
+            <a href="#" class="navbar__logo">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/47001d42324ec6a2c7d00cc74ea79d70c57d578a/2026-web-camp/device-mobile.svg" alt="Nelson Logo"> 
+            </a>
+            <button class="navbar__close" id="menu-close">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            </div>
+
+            <ul class="navbar__menu d-flex">
+            <li><a href="#" class="navbar__link text-md text-neutral-700">服務項目</a></li>
+            <li><a href="#" class="navbar__link text-md text-neutral-700">專案作品</a></li>
+            <li><a href="#" class="navbar__link text-md text-neutral-700">部落格</a></li>
+            <li><a href="#" class="navbar__link text-md text-neutral-700">與我聯絡</a></li>
+            </ul>
+
+        </div>
+        </div>
+
     </div>
     </nav>
 
-    <!-- 首頁視覺區 (Hero Section) -->
+<!-- 首頁視覺區 (Hero Section) -->
     <header class="hero">
-    <!-- 使用我們設定好的 d-flex 與 align-center 讓左右垂直置中 -->
-    <div class="container d-flex align-center">
-        
-        <!-- 左側：文字與按鈕區塊 -->
-        <div class="hero__content">
-        <h1 class="title-xxxl">Hello<br>I’m Nelson</h1>
-        
-        <!-- 內文：套用 text-md 與深灰色 -->
-        <p class="hero__desc text-md text-neutral-700">
-            我是一個擁有 10 年經驗的 UIUX 設計師 和 前端工程師<br>
-            喜歡把美學和程式結合，打造一個又一個精美的網頁設計！
-        </p>
-        
-        <!-- 按鈕區塊：再次使用 Flexbox 排列 -->
-        <div class="hero__actions d-flex">
-            <!-- 🎯 修正處：將 bg-primary-900 替換為 bg-neutral-700 (#404040) -->
-            <a href="#" class="btn bg-neutral-700 text-white text-md">與我聯絡</a>
-            <!-- 外框按鈕 (透明底、深灰字，並加上邊框樣式) -->
-            <a href="#" class="btn btn-outline bg-transparent text-neutral-700 text-md">我的履歷</a>
-        </div>
-        </div>
-
-        <!-- 右側：照片區塊 -->
-        <div class="hero__image">
-        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/refs/heads/main/2026-web-camp/index_person.png" alt="Nelson Portrait">
-        </div>
-        
-    </div>
+      <div class="container d-flex align-center">
+          
+          <!-- 左側：文字與按鈕區塊 -->
+          <div class="hero__content">
+            <!-- 🎯 跟著文字的裝飾圖 -->
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_3.png?raw=true" class="decora decora-3" alt="">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_4.png?raw=true" class="decora decora-4" alt="">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_5.png?raw=true" class="decora decora-5" alt="">
+            
+            <h1 class="title-xxxl text-neutral-900">Hello<br>I’m Nelson</h1>
+            
+            <p class="hero__desc text-md text-neutral-700">
+                我是一個擁有 10 年經驗的 UIUX 設計師 和 前端工程師<br>
+                喜歡把美學和程式結合，打造一個又一個精美的網頁設計！
+            </p>
+            
+            <div class="hero__actions d-flex">
+                <a href="#" class="btn bg-neutral-700 text-white text-md">與我聯絡</a>
+                <a href="#" class="btn btn-outline bg-transparent text-neutral-700 text-md">我的履歷</a>
+            </div>
+          </div>
+  
+          <!-- 右側：照片區塊 -->
+          <div class="hero__image">
+            <!-- 🎯 死心塌地跟著照片的裝飾圖 (色塊) -->
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_1.png?raw=true" class="decora decora-1" alt="">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_2.png?raw=true" class="decora decora-2" alt="">
+            <!-- 主角照片 -->
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/refs/heads/main/2026-web-camp/index_person.png" class="person-img" alt="Nelson Portrait">
+          </div>
+          
+      </div>
     </header>
 
     <!-- SERVICES 服務項目區塊 -->
@@ -70,7 +95,7 @@
         <h2 class="title-xxxl">SERVICES</h2>
         </div>
 
-<!-- 服務卡片列表容器 -->
+    <!-- 服務卡片列表容器 -->
     <div class="services__list">
       
       <!-- 卡片 1：平面設計 -->
@@ -139,6 +164,225 @@
     </div>
     </div>
     </section>
+
+    <section class="projects">
+    <div class="container">
+        
+        <div class="projects__header text-center" style="margin-bottom: 80px;">
+        <p class="title-xxxs text-neutral-700">專案作品</p>
+        <h2 class="title-xxxl text-neutral-700">PROJECTS</h2>
+        </div>
+
+        <div class="projects__list d-flex flex-column">
+        
+        <div class="project-card">
+            <div class="project-card__image">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_1.png?raw=true" alt="多肉植物品牌電商">
+            </div>
+            
+            <div class="project-card__content bg-neutral-0 text-neutral-700">
+            <p class="text-sm text-neutral-500">Oct 16, 2026</p>
+            <p class="text-md text-neutral-700">平面設計 · 網頁設計</p>
+            <h3 class="title-sm text-neutral-700">品牌視覺與電商整合，多肉植物品牌電商建置</h3>
+            <p class="text-md text-neutral-500">從品牌識別到 RWD 網站開發，打造極致系統購物體驗</p>
+            <a href="#" class="btn bg-neutral-700 text-white text-md">前往專案</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-card__image">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_2.png?raw=true" alt="數位產品 UIUX 設計">
+            </div>
+            
+            <div class="project-card__content bg-neutral-0 text-neutral-900">
+            <p class="text-sm text-neutral-500">Oct 16, 2026</p>
+            <p class="text-md text-neutral-700">平面設計 · 網頁設計 · 前端切版</p>
+            <h3 class="title-sm text-neutral-700">數位產品 UI/UX 設計，個人化財務視覺化軟體</h3>
+            <p class="text-md text-neutral-500">運用數據視覺化邏輯，將複雜的財務數據轉化為直覺的操作介面</p>
+            <a href="#" class="btn bg-neutral-700 text-white text-md">前往專案</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-card__image">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_3.png?raw=true" alt="法式甜點品牌視覺">
+            </div>
+            
+            <div class="project-card__content bg-neutral-0 text-neutral-900">
+            <p class="text-sm text-neutral-500">Oct 16, 2026</p>
+            <p class="text-md text-neutral-700">前端切版 · 後端開發</p>
+            <h3 class="title-sm text-neutral-700">品牌識別與包裝設計，法式甜點品牌視覺重塑</h3>
+            <p class="text-md text-neutral-500">以溫暖、精緻的視覺語言，精準定位高質感的甜點市場品牌形象</p>
+            <a href="#" class="btn bg-neutral-700 text-white text-md">前往專案</a>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="d-flex justify-center" style="margin-top: 80px;">
+        <a href="#" class="btn bg-neutral-700 text-white text-md">探索更多</a>
+        </div>
+
+    </div>
+    </section>
+
+    <section class="blogs">
+    <div class="container">
+        
+        <div class="blogs__header d-flex justify-between align-end" style="margin-bottom: 40px;">
+        <div>
+            <p class="title-xxxs text-neutral-700">部落格</p>
+            <h2 class="title-xxxl text-neutral-700">BLOGS</h2>
+        </div>
+        <a href="#" class="btn btn-outline bg-transparent text-neutral-700 text-md">探索更多</a>
+        </div>
+
+        <div class="blogs__list">
+        
+        <div class="blog-card">
+            <div class="blog-card__image">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/blog_2.png?raw=true" alt="文章縮圖">
+            </div>
+            
+            <div class="blog-card__content">
+            <p class="text-sm text-neutral-500">UIUX 設計 · 設計規範 · 前端技術</p>
+            <h3 class="title-sm text-neutral-700">10年職人手記：如何運用 Figma 與 Storybook 打造美感與邏輯兼具的企業級設計系統</h3>
+            
+            <div class="blog-card__meta text-sm text-neutral-500">
+                <span>Oct 16, 2026</span>
+                
+                <div class="meta-stats">
+                <div class="stat-item">
+                    <span class="material-symbols-outlined meta-icon">visibility</span>
+                    <span>110 views</span>
+                </div>
+                <div class="stat-item">
+                    <span class="material-symbols-outlined meta-icon">share</span>
+                    <span>2 shares</span>
+                </div>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <div class="blog-card__image">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/blog_3.png?raw=true" alt="文章縮圖">
+            </div>
+            <div class="blog-card__content">
+            <p class="text-sm text-neutral-500">品牌設計 · 平面設計 · UIUX 設計</p>
+            <h3 class="title-sm text-neutral-700">從平面識別到數位體驗：以「植感生活」為例，探討跨媒體品牌視覺在網頁上的精準轉譯</h3>
+            <div class="blog-card__meta text-sm text-neutral-500">
+                <span>Oct 16, 2026</span>
+                <div class="meta-stats">
+                <div class="stat-item">
+                    <span class="material-symbols-outlined meta-icon">visibility</span>
+                    <span>110 views</span>
+                </div>
+                <div class="stat-item">
+                    <span class="material-symbols-outlined meta-icon">share</span>
+                    <span>2 shares</span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <div class="blog-card__image">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/blog_4.png?raw=true" alt="文章縮圖">
+            </div>
+            <div class="blog-card__content">
+            <p class="text-sm text-neutral-500">前端技術 · 前端技術</p>
+            <h3 class="title-sm text-neutral-700">國泰金融 App 開發設計解構：如何優化 Open Bank API 的效能與確保資訊傳輸的高安全性</h3>
+            <div class="blog-card__meta text-sm text-neutral-500">
+                <span>Oct 16, 2026</span>
+                <div class="meta-stats">
+                <div class="stat-item">
+                    <span class="material-symbols-outlined meta-icon">visibility</span>
+                    <span>110 views</span>
+                </div>
+                <div class="stat-item">
+                    <span class="material-symbols-outlined meta-icon">share</span>
+                    <span>2 shares</span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </section>
+
+    <section class="subscription bg-primary-900 text-white">
+    <div class="container d-flex justify-between align-center">
+        
+        <div class="subscription__image">
+        <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/subscription.png?raw=true" alt="訂閱電子報">
+        </div>
+
+        <div class="subscription__content">
+        <div class="subscription__header">
+            <p class="title-xxxs text-white mb-2">電子報訂閱</p>
+            <h2 class="title-xxxl text-white mb-4">SUBSCRIPTION</h2>
+            <p class="text-md text-white">
+            你也在追求設計美感與技術落地的完美平衡嗎？作為資深設計師兼工程師，我深知跨領域協作的痛點。訂閱電子報，我將分享如何利用 AI 工具提升產能！
+            </p>
+        </div>
+        
+        <form class="subscription__form d-flex align-center">
+            <input type="email" placeholder="電子信箱" class="subscription__input text-md" required>
+            <button type="submit" class="btn bg-neutral-0 text-neutral-700 text-md font-bold">送出</button>
+        </form>
+        </div>
+
+    </div>
+    </section>
+
+    <section class="contact bg-primary-900 text-white">
+    <div class="container">
+        <div class="contact__inner">
+      
+      <div class="contact__text">
+        <div class="contact__header mb-6">
+          <p class="title-xxxs mb-2">與我聯絡</p>
+          <h2 class="title-xxxl">CONTACT</h2>
+        </div>
+        <p class="text-md mb-6" style="line-height: 1.8;">
+          若有數位產品設計和開發相關問題<br>
+          歡迎填寫表單 或 直接與我聯絡！
+        </p>
+      </div>
+
+      <form class="contact__form">
+        <div class="form-row d-flex">
+          <input class="form-input text-md" type="text" placeholder="姓名" required />
+          <input class="form-input text-md" type="tel" placeholder="手機號碼" required />
+        </div>
+        <input class="form-input text-md" type="email" placeholder="電子信箱" required />
+        <textarea class="form-textarea text-md" placeholder="備註"></textarea>
+        <button type="submit" class="btn bg-neutral-0 text-neutral-700 title-xxxs submit-btn">送出</button>
+      </form>
+
+      <div class="contact__social-group">
+        <div class="contact__socials d-flex align-center mb-4" style="gap: 12px;">
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-line"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="contact__email text-md d-flex align-center gap-2">
+          <span class="material-symbols-outlined" style="font-size: 20px;">mail</span> 
+          service@hexschool.com
+        </div>
+      </div>
+
+    </div>
+    </div>
+    </section>
+
+    <script src="all.js"></script>
 
 </body>
 </html>

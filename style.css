@@ -104,17 +104,6 @@ a { text-decoration: none; color: inherit; }
 .text-xs { font-size: 13px; font-weight: 500; line-height: 1.5; }
 
 /* 預設為桌機版樣式 */
-
-/* 平板尺寸 (Tablet) - 小於 992px */
-@media (max-width: 991.98px) {
-  /* 之後平板的覆寫寫這裡 */
-}
-
-/* 手機尺寸 (Mobile) - 小於 768px */
-@media (max-width: 767.98px) {
-  /* 之後手機的覆寫寫這裡，例如要把 Display 字體大幅縮小 */
-}
-
 /* =========================================
    OOCSS: Layout Tools (排版積木)
    ========================================= */
@@ -164,82 +153,300 @@ a { text-decoration: none; color: inherit; }
 
 /*  開始  */
 /* =========================================
-   Components: Nav Bar
+   Components: Nav Bar (Desktop 預設)
    ========================================= */
 .navbar {
-  padding: 20px 0; /* 上下內距，請依據 Figma 實際數值調整 */
+  padding: 20px 0; 
+  /* 確保 navbar 在最上層，避免被下方區塊蓋住 */
+  position: relative; 
+  z-index: 100;
 }
 
 .navbar__menu {
-  gap: 32px; /* 選單項目之間的距離 */
+  gap: 32px; 
 }
 
-/* 互動細節 (Micro-interactions) */
 .navbar__link {
-  transition: opacity 0.3s ease; /* 加入平滑過場 */
+  transition: opacity 0.3s ease; 
 }
 
 .navbar__link:hover {
-  opacity: 0.7; /* 游標移上去時稍微變暗，提升使用者體驗 */
+  opacity: 0.7; 
 }
 
-/* 針對 SVG Logo 的防呆設定 */
-.navbar__logo {
-  display: flex; /* 讓 <a> 標籤貼合圖片，避免產生下方多餘空白 */
-  align-items: center;
-}
-
-.navbar__logo img {
-  display: block;
-  /* 這裡預設給個高度，你可以依據 Figma 裡 Logo 的實際高度數字做調整，例如 24px 或 32px */
-  height: 24px; 
-  width: auto;
+/* 在桌機版時，隱藏所有手機專用的按鈕與結構 */
+.navbar__toggle,
+.navbar__mobile-header,
+.navbar__overlay {
+  display: none;
 }
 
 /* =========================================
-   Components: Hero Section
+   📱 RWD: Nav Bar 手機尺寸 (小於 768px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  
+  /* 1. 顯示漢堡按鈕 */
+  .navbar__toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    color: var(--color-neutral-700);
+    cursor: pointer;
+  }
+
+  .navbar__toggle span {
+    font-size: 28px; /* 讓漢堡圖示稍微大一點，方便點擊 */
+    display: flex;
+  }
+
+  /* 2. 把整個導覽列抽離畫面，變成全螢幕彈出層 (預設隱藏) */
+  .navbar__collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* 佔滿整個螢幕高度 */
+    z-index: 999;
+    
+    /* 🎯 預設隱藏，等待 JS 加上 .is-open class 時才顯示 */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  /* 🎯 當 JS 啟動這個 class 時，選單就會滑順地浮現 */
+  .navbar__collapse.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* 3. 60% 黑色遮罩 */
+  .navbar__overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 套用你設計系統裡早就準備好的 60% 遮罩變數！ */
+    background-color: var(--color-dark-60a); 
+    z-index: 1;
+  }
+
+  /* 4. 白色/淺米色 選單內容區塊 */
+  .navbar__menu-wrapper {
+    position: relative;
+    z-index: 2; /* 確保浮在黑色遮罩之上 */
+    padding: 20px 12px 60px; /* 內部留白 */
+    /* 展開時，稍微加上陰影增加立體感 */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+  }
+
+  /* 5. 手機版展開時的頭部 (包含 X 按鈕) */
+  .navbar__mobile-header {
+    display: flex;
+    padding-bottom: 40px; /* 與下方選單拉開距離 */
+  }
+
+  .navbar__close {
+    background: transparent;
+    border: none;
+    color: var(--color-neutral-700);
+    cursor: pointer;
+  }
+
+  .navbar__close span {
+    font-size: 28px;
+    display: flex;
+  }
+
+  /* 6. 將原本橫排的選單，改為直排且置中 */
+  .navbar__menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px; /* 垂直文字的間距 */
+  }
+}
+
+/* =========================================
+   Components: Hero Section (Desktop)
    ========================================= */
 .hero {
-  /* 視 Figma 整體上下留白調整 */
-  /* padding: 40px 0;  */
+  padding-top: 80px; 
+  padding-bottom: 0; /* 🎯 關鍵 1：強烈移除底部留白，讓內部元素可以直接踩到底線！ */
+  overflow: hidden; 
 }
 
-/* 針對 Hero 裡面的 Flex 容器設定間距 */
+/* 🎯 父容器設定相對定位，作為裝飾圖的基準點 */
+.hero__content,
+.hero__image {
+  position: relative; 
+  z-index: 1; 
+}
+
 .hero .container {
-  /* ✨ 這裡就是你截圖中抓到的關鍵 24px！ */
   gap: 24px; 
+  align-items: center; /* 讓左邊文字相對於整張照片垂直置中 */
 }
 
-/* 左側文字區塊：讓它自動填滿剩餘的空間 */
 .hero__content {
   flex: 1; 
 }
 
-/* 調整內文的上下間距 (請依據 Figma 標示的行距微調) */
 .hero__desc {
   margin-top: 24px;
   margin-bottom: 60px; 
 }
 
-/* 按鈕之間的間距 */
 .hero__actions {
   gap: 24px; 
 }
 
-/* 右側圖片區塊 */
+/* 照片區塊大小限制 */
 .hero__image {
-  /* ✨ 這裡對應你截圖中的 746px 寬度 */
+  /* 🎯 關鍵 2：恢復你原本精準量測的 746px 寬度！ */
   flex: 0 0 746px; 
-  max-width: 55%; /* 加個保險：螢幕變小時，圖片最多佔 55% 寬度，避免文字被擠壓 */
+  max-width: 55%;
 }
 
-
-.hero__image img {
+.hero__image .person-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* 加入這行，消除圖片下方的幽靈神祕空隙 */
-  display: block; 
+  display: block;
+}
+
+/* ... (中間的 .decora 裝飾圖設定請完全保留上一版的樣子) ... */
+
+/* =========================================
+   📱 RWD: Hero 手機尺寸 (小於 768px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  
+  .hero {
+    /* 🎯 關鍵 3：手機版因為變成「上圖下文」，文字被擠到最下面，必須把底部的呼吸空間補回來，才不會跟下一個區塊黏在一起 */
+    padding-bottom: 80px; 
+  }
+
+  .hero .container {
+    flex-direction: column-reverse; 
+    gap: 40px;
+  }
+
+  /* 釋放寬度，讓圖片跟文字都佔滿螢幕 */
+  .hero__image,
+  .hero__content {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+
+  /* 微調手機版按鈕間距 */
+  .hero__actions {
+    gap: 12px;
+  }
+  
+  .hero__actions .btn {
+    padding: 12px 24px; 
+  }
+
+  /* 隱藏/微調手機版裝飾圖 */
+  .decora-3 {
+    left: 30%;
+  }
+  .decora-4 {
+    top: 5%;
+    right: 0;
+  }
+  .decora-5 {
+    bottom: 30%;
+    right: 0;
+  }
+}
+
+/* =========================================
+   🪄 Hero 裝飾圖 (Decorations)
+   ========================================= */
+.decora {
+  position: absolute;
+  z-index: -1; /* 預設放在文字和圖片的後方 */
+}
+
+/* 依附在照片上的色塊 */
+.decora-1 {
+  top: -8%; 
+  left: -8%;
+  z-index: 2; /* 這塊特例，要壓在照片上方 */
+}
+.decora-2 {
+  bottom: 10%; 
+  right: -10%;
+  z-index: 2;
+}
+
+/* 依附在文字區的線條與太陽 */
+.decora-3 {
+  top: -15%; 
+  left: -15%;
+
+}
+.decora-4 {
+  top: -10%; 
+  right: 25%;
+}
+.decora-5 {
+  bottom: -25%; 
+  right: -5%;
+}
+
+/* =========================================
+   📱 RWD: Hero 手機尺寸 (小於 768px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  
+  .hero {
+    /* 🎯 關鍵 3：手機版因為變成「上圖下文」，文字被擠到最下面，必須把底部的呼吸空間補回來，才不會跟下一個區塊黏在一起 */
+    padding-bottom: 80px; 
+  }
+
+  .hero .container {
+    flex-direction: column-reverse; 
+    gap: 40px;
+  }
+
+  /* 釋放寬度，讓圖片跟文字都佔滿螢幕 */
+  .hero__image,
+  .hero__content {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+
+  /* 微調手機版按鈕間距 */
+  .hero__actions {
+    gap: 12px;
+  }
+  
+  .hero__actions .btn {
+    padding: 12px 24px; 
+  }
+
+  /* 隱藏/微調手機版裝飾圖 */
+  .decora-3 {
+    top: 0; 
+    left: 0;
+    bottom: 10%;
+    right: -5%;
+  }
+  .decora-4 {
+    top: 5%;
+    right: -5%;
+  }
+  .decora-5 {
+    bottom: -15%;
+    right: 75%;
+  }
 }
 
 /* =========================================
@@ -312,4 +519,454 @@ a { text-decoration: none; color: inherit; }
 
 .btn-circle:hover {
   opacity: 0.8;
+}
+
+/* =========================================
+   📱 RWD: Services 手機尺寸 (小於 768px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  
+  .services {
+    padding: 60px 0; /* 手機版可以稍微縮小區塊上下留白 */
+  }
+
+  .services__list {
+    /* 1. 從 Grid 改為水平 Flex 排列，並且絕對不准換行！ */
+    display: flex;
+    flex-wrap: nowrap;
+    
+    /* 2. 開啟水平滾動 */
+    overflow-x: auto;
+    
+    /* 3. 🎯 資深前端切版秘訣：突破 Container 限制
+       因為外層 container 有左右 padding，會導致滾動被截斷在畫面內。
+       我們利用「負 margin 抵消 + 補回 padding」的技巧，讓卡片可以滑到螢幕最邊緣！*/
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    
+    /* 4. 開啟平滑的滾動吸附功能 (讓卡片滑動時有「卡扣」的感覺) */
+    scroll-snap-type: x mandatory;
+    
+    /* 5. 隱藏醜醜的系統滾動條 (保持介面極簡風格) */
+    -ms-overflow-style: none;  /* IE 和 Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+
+  /* 隱藏 Chrome, Safari, Opera 的系統滾動條 */
+  .services__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 🎯 鎖死卡片寬度，讓右側露出半張卡片暗示可以滑動 */
+  .service-card {
+    /* 寬度設為 280px (或視你的設計稿微調)，不允許被擠壓 (flex-shrink: 0) */
+    flex: 0 0 280px; 
+    
+    /* 設定滑動停止時的對齊點：對齊卡片的開頭 */
+    scroll-snap-align: start; 
+  }
+}
+
+/* =========================================
+   📱 RWD: Services 手機尺寸 (小於 768px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  
+  .services {
+    padding: 60px 0; /* 手機版可以稍微縮小區塊上下留白 */
+  }
+
+  .services__list {
+    /* 1. 從 Grid 改為水平 Flex 排列，並且絕對不准換行！ */
+    display: flex;
+    flex-wrap: nowrap;
+    
+    /* 2. 開啟水平滾動 */
+    overflow-x: auto;
+    
+    /* 3. 🎯 資深前端切版秘訣：突破 Container 限制
+       因為外層 container 有左右 padding，會導致滾動被截斷在畫面內。
+       我們利用「負 margin 抵消 + 補回 padding」的技巧，讓卡片可以滑到螢幕最邊緣！*/
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    
+    /* 4. 開啟平滑的滾動吸附功能 (讓卡片滑動時有「卡扣」的感覺) */
+    scroll-snap-type: x mandatory;
+    
+    /* 5. 隱藏醜醜的系統滾動條 (保持介面極簡風格) */
+    -ms-overflow-style: none;  /* IE 和 Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+
+  /* 隱藏 Chrome, Safari, Opera 的系統滾動條 */
+  .services__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 🎯 鎖死卡片寬度，讓右側露出半張卡片暗示可以滑動 */
+  .service-card {
+    /* 寬度設為 280px (或視你的設計稿微調)，不允許被擠壓 (flex-shrink: 0) */
+    flex: 0 0 280px; 
+    
+    /* 設定滑動停止時的對齊點：對齊卡片的開頭 */
+    scroll-snap-align: start; 
+  }
+}
+
+
+/* =========================================
+   Components: Projects Section
+   ========================================= */
+.projects {
+  padding: 80px 0; /* 區塊上下 80px 留白 */
+}
+
+/* 列表內部的卡片間距 (若設計稿有空隙可微調，先抓 48px) */
+.projects__list {
+  gap: 48px; 
+}
+
+/* 🎯 Grid 疊加魔法 */
+.project-card {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center; /* 讓白色卡片垂直置中 */
+}
+
+.project-card__image {
+  /* 圖片佔據全部 12 欄，並強制高度為你的精準數據 397px */
+  grid-column: 1 / 13; 
+  grid-row: 1; 
+  height: 397px; 
+}
+
+.project-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card__content {
+  /* 讓卡片從第 2 欄開始，創造微內縮的精緻感 */
+  grid-column: 2 / span 5; 
+  grid-row: 1; /* 大家都待在第 1 列，自然重疊！ */
+  z-index: 2; 
+  
+  /* 🎯 套用你抓出的所有精準數據 */
+  width: 386px; 
+  height: 341px; 
+  padding: 40px; 
+  
+  /* 🎯 魔法排版：所有元素間距 12px */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直置中內部文字 */
+  gap: 12px; 
+}
+
+/* 針對卡片內的按鈕，防止它被 flex-direction: column 拉長 */
+.project-card__content .btn {
+  /* 讓按鈕維持自身內容大小，並靠左對齊 */
+  align-self: flex-start; 
+}
+
+/* =========================================
+   Components: Blogs Section
+   ========================================= */
+.blogs {
+  padding: 80px 0;
+}
+
+.blogs__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 切成 3 等份，每份剛好 416px */
+  gap: 24px;
+}
+
+.blogs__header {
+  display: flex;
+  justify-content: space-between;
+  /* 🎯 關鍵修正：告訴 Flexbox 貼齊底部，絕對不要拉伸按鈕！ */
+  align-items: center; 
+
+  /* 牢記你的規則：標題與下方內容相距 40px */
+  margin-bottom: 40px; 
+}
+
+/* =========================================
+   Components: Blog Card
+   ========================================= */
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  /* 🎯 移除背景、移除圓角、移除 padding */
+  /* 🎯 牢記你的規則：卡片內圖片與文字區塊距離 12px */
+  gap: 12px; 
+}
+
+.blog-card__image {
+  /* 🎯 精準高度設定：240px */
+  height: 240px; 
+  width: 100%;
+}
+
+.blog-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* 讓內容區塊撐滿剩餘高度 */
+  
+  /* 🎯 牢記你的規則：卡片內文字段落之間全部相距 12px！ */
+  gap: 12px; 
+}
+
+/* --- 卡片底部 Meta 資訊區塊 --- */
+.blog-card__meta {
+  margin-top: auto; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 讓左右兩邊中心對齊 */
+  
+  /* 🎯 關鍵防禦：強制拔除 1.5 的行高，消除幽靈空間 */
+  line-height: 1; 
+}
+
+.meta-stats {
+  display: flex;
+  align-items: center; /* 確保內部群組也絕對置中 */
+  gap: 12px; 
+}
+
+.stat-item {
+  display: flex;
+  align-items: center; /* 讓 Icon 跟文字的中心點精準對齊 */
+  gap: 2px; 
+}
+
+/* 🎯 利用父層組合，權重變成 10 + 10 = 20！輕鬆擊敗 Google 的 10 */
+.stat-item .meta-icon {
+  font-size: 15px; 
+  width: 20px;
+  height: 20px;
+  
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  line-height: 1; 
+}
+
+/* =========================================
+   Components: Subscription Section
+   ========================================= */
+.subscription {
+  padding: 80px 0; 
+  /* 🎯 魔法疊加術：
+    在原本的 url() 前面，加上一個從頭到尾都是 60% 黑色的 linear-gradient。
+    CSS 支援多重背景，寫在越前面的會疊在越上層！
+  */
+  background-image: linear-gradient(var(--color-dark-60a), var(--color-dark-60a)), 
+                    url('https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/subscription_bg.png?raw=true');
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 🎯 圖片區域：給予彈性 */
+.subscription__image {
+  width: 526px;
+  max-width: 100%; /* 螢幕不夠大時，最多只能佔滿 100% */
+}
+
+.subscription__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 🎯 內容區域：給予彈性 */
+.subscription__content {
+  width: 666px;
+  max-width: 100%; /* 防禦性設定 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 表單區塊與輸入框維持你先前的設定即可... */
+.subscription__form {
+  margin-top: 24px;
+  height: 64px; 
+  border: 1px solid #FFFFFF; 
+  border-radius: 40px; 
+  padding: 6px 6px 6px 24px; 
+}
+
+.subscription__input {
+  flex: 1; 
+  background-color: transparent; 
+  border: none; 
+  color: #FFFFFF;
+  outline: none;
+}
+
+.subscription__input::placeholder {
+  color: rgba(255, 255, 255, 0.6); 
+}
+
+.subscription__form .btn {
+  height: 100%;
+  padding: 0 40px; 
+  white-space: nowrap; 
+}
+
+/* =========================================
+   📱 RWD: Subscription 平板尺寸以下 (992px)
+   ========================================= */
+@media (max-width: 991.98px) {
+  /* 將原本左右並排的結構，強制改為上下堆疊 */
+  .subscription .container.d-flex {
+    flex-direction: column;
+    gap: 40px; /* 上下區塊的間距 */
+  }
+
+  .subscription__image,
+  .subscription__content {
+    width: 100%; /* 讓圖片跟內容在小螢幕時都能完整延展 */
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* 手機版可以考慮把字體稍微縮小，表單高度微調等 */
+  .subscription__form {
+    height: 56px; 
+    padding: 4px 4px 4px 16px;
+  }
+}
+
+/* =========================================
+   Contact 佈局：Grid 拼圖魔法 (外層排版)
+   ========================================= */
+.contact__inner {
+
+    display: grid;
+  /* 左邊自動延展，右邊保留你精準設定的 58% */
+    grid-template-columns: 1fr 58%;
+  
+  /* 桌機版拼圖：左上文字、左下社群、右側整個是表單 */
+    grid-template-areas:
+    "text form"
+    "social form";
+    padding: 80px 0;
+}
+
+/* 幫積木貼上對應的名字 */
+.contact__text { 
+  grid-area: text; 
+  
+}
+
+.contact__social-group { 
+  grid-area: social; 
+  align-self: end; /* 讓社群貼齊下方 */
+}
+
+
+/* =========================================
+   Contact Form (聯絡表單內部樣式 - 完全保留你的傑作)
+   ========================================= */
+.contact__form {
+  grid-area: form; /* 告訴這塊積木它叫 form */
+  /* (移除了原本的 width: 58%，因為交給 Grid 管理了) */
+  padding: 0 40px; 
+  display: flex;
+  flex-direction: column;
+  gap: 24px; 
+
+}
+
+.form-row {
+  display: flex;
+  gap: 24px; 
+
+}
+
+.form-input, 
+.form-textarea {
+  font-family: inherit; 
+  width: 100%;
+  color: #FFFFFF;
+  background: transparent;
+  border: 1px solid #FFFFFF;
+  border-radius: 40px;
+  outline: none;
+  padding: 20px 32px; 
+  transition: box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2); 
+}
+
+.form-textarea {
+  height: 136px; 
+  border-radius: 24px; 
+  resize: none; 
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6); 
+}
+
+.contact__form .submit-btn {
+  width: 100%;
+  padding: 6px 0; /* 你之前設定的 padding */
+}
+
+/* =========================================
+   📱 RWD: Contact 響應式設計
+   ========================================= */
+
+/* 平板尺寸 (Tablet) - 小於 992px */
+@media (max-width: 991.98px) {
+  .contact__inner {
+    /* 變成只有一個直欄 */
+    grid-template-columns: 1fr;
+    
+    /* 🎯 魔法發生：在這裡把順序改成「文字 -> 表單 -> 社群」 */
+    grid-template-areas:
+      "text"
+      "form"
+      "social";
+      
+    gap: 60px; /* 拉開上下區塊的間距 */
+  }
+
+  .contact__form {
+    padding: 0; /* 移除原本左右 40px 的內距，讓表單切齊邊緣 */
+  }
+}
+
+/* 手機尺寸 (Mobile) - 小於 768px */
+@media (max-width: 767.98px) {
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-input, 
+  .form-textarea {
+    padding: 16px 24px;
+  }
 }
