@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -53,13 +54,13 @@
       <div class="container d-flex align-center">
           
           <!-- 左側：文字與按鈕區塊 -->
-          <div class="hero__content">
+          <div class="hero__content" data-aos="fade-up">
             <!-- 🎯 跟著文字的裝飾圖 -->
             <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_3.png?raw=true" class="decora decora-3" alt="">
             <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_4.png?raw=true" class="decora decora-4" alt="">
             <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_5.png?raw=true" class="decora decora-5" alt="">
             
-            <h1 class="title-xxxl text-neutral-900">Hello<br>I’m Nelson</h1>
+            <h1 class="title-xxxl text-neutral-700" >Hello<br>I’m Nelson</h1>
             
             <p class="hero__desc text-md text-neutral-700">
                 我是一個擁有 10 年經驗的 UIUX 設計師 和 前端工程師<br>
@@ -73,7 +74,7 @@
           </div>
   
           <!-- 右側：照片區塊 -->
-          <div class="hero__image">
+          <div class="hero__image" data-aos="fade-up">
             <!-- 🎯 死心塌地跟著照片的裝飾圖 (色塊) -->
             <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_1.png?raw=true" class="decora decora-1" alt="">
             <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/index_decora_2.png?raw=true" class="decora decora-2" alt="">
@@ -85,7 +86,7 @@
     </header>
 
     <!-- SERVICES 服務項目區塊 -->
-    <section class="services bg-primary-900 text-white">
+    <section class="services bg-primary-900 text-white" data-aos="fade-up">
     <div class="container">
         
         <!-- 區塊標題 -->
@@ -96,7 +97,7 @@
         </div>
 
     <!-- 服務卡片列表容器 -->
-    <div class="services__list">
+    <div class="services__list" data-aos="fade-up">
       
       <!-- 卡片 1：平面設計 -->
       <div class="service-card bg-neutral-0 text-neutral-900">
@@ -117,7 +118,7 @@
       </div>
 
       <!-- 卡片 2：網頁設計 -->
-      <div class="service-card bg-neutral-0 text-neutral-900">
+      <div class="service-card bg-neutral-0 text-neutral-700">
         <div class="service-card__header d-flex justify-between">
           <div class="d-flex flex-column">
             <span class="title-xxxs">WEBSITE</span>
@@ -132,7 +133,7 @@
       </div>
 
       <!-- 卡片 3：前端切版 -->
-      <div class="service-card bg-neutral-0 text-neutral-900">
+      <div class="service-card bg-neutral-0 text-neutral-700">
         <div class="service-card__header d-flex justify-between">
           <div class="d-flex flex-column">
             <span class="title-xxxs">FRONTEND</span>
@@ -147,7 +148,7 @@
       </div>
 
       <!-- 卡片 4：後端開發 -->
-      <div class="service-card bg-neutral-0 text-neutral-900">
+      <div class="service-card bg-neutral-0 text-neutral-700">
         <div class="service-card__header d-flex justify-between">
           <div class="d-flex flex-column">
             <span class="title-xxxs">BACKEND</span>
@@ -166,7 +167,7 @@
     </section>
 
     <section class="projects">
-    <div class="container">
+    <div class="container" data-aos="fade-up">
         
         <div class="projects__header text-center" style="margin-bottom: 80px;">
         <p class="title-xxxs text-neutral-700">專案作品</p>
@@ -227,7 +228,7 @@
     </section>
 
     <section class="blogs">
-    <div class="container">
+    <div class="container" data-aos="fade-up">
         
         <div class="blogs__header d-flex justify-between align-end" style="margin-bottom: 40px;">
         <div>
@@ -317,7 +318,7 @@
     </section>
 
     <section class="subscription bg-primary-900 text-white">
-    <div class="container d-flex justify-between align-center">
+    <div class="container d-flex justify-between align-center" data-aos="fade-up">
         
         <div class="subscription__image">
         <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/subscription.png?raw=true" alt="訂閱電子報">
@@ -381,6 +382,17 @@
     </div>
     </div>
     </section>
+
+    <script src="all.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        
+        <script>
+        AOS.init({
+            duration: 800, // 動畫滑順的長度 (0.8秒)
+            once: true     // 只播放一次，往上滾時不會一直重播
+        });
+        </script>
 
     <script src="all.js"></script>
 

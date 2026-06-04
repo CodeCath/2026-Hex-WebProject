@@ -1094,4 +1094,24 @@ a { text-decoration: none; color: inherit; }
   .form-textarea {
     padding: 16px 24px;
   }
+  
+}
+
+/* =========================================
+   📱 RWD: 全域字體縮放 (Typography Responsive)
+   ========================================= */
+@media (max-width: 767.98px) {
+  
+  /* 全站的大標題 h2 (SERVICES, PROJECTS 等) 從 80px 縮小為 40px */
+  .title-xxxl {
+    font-size: 40px;
+  }
+
+  /* 全站標題上方的小字 p 從 16px 縮小為 14px */
+  .title-xxxs {
+    font-size: 14px;
+  }
+  
+  /* 如果 Hero 區塊的 Hello I'm Nelson 在手機上覺得太大，也可以在這裡順手縮小 */
+  /* .title-xxl { font-size: 40px; } */ /* 視情況可以打開這行 */
 }
