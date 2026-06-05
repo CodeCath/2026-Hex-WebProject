@@ -1440,6 +1440,31 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 8px;
 }
 
+/* --- 🎯 金句引言區塊 (Blockquote) --- */
+.article-blockquote {
+  background-color: var(--color-primary-50); /* #FDF7F1 */
+  padding: 24px; /* 🎯 精準的 24px 上下左右內距 */
+  margin: 40px 0; /* 與上下段落維持安全距離 */
+  border-radius: 4px; /* 稍微加上一點圓角讓視覺更溫潤 (可視設計稿決定是否保留) */
+}
+
+/* 為了避免被前面的 .article-body > * { padding-top: 16px; } 影響，這裡將 padding-top 歸零 */
+.article-blockquote > * {
+  padding-top: 0; 
+}
+
+.blockquote-label {
+  font-size: 16px;   /* 🎯 第一行文字：16px */
+  font-weight: 500;  /* 🎯 第一行文字：weight 500 */
+  margin-bottom: 8px; /* 與下方大字的距離 */
+}
+
+.blockquote-text {
+  font-size: 20px;   /* 🎯 第二行文字：20px */
+  font-weight: 700;  /* 🎯 第二行文字：weight 700 */
+  line-height: 1.5;  /* 給予舒適的閱讀行高 */
+  margin-bottom: 0;  /* 移除預設的段落底部邊距，確保 24px padding 的絕對精準 */
+}
 
 /* --- 🎯 Table 表格設計 --- */
 .table-responsive {
@@ -1501,8 +1526,11 @@ a { text-decoration: none; color: inherit; }
    📱 RWD: Blog Article (手機版微調)
    ========================================= */
 @media (max-width: 767.98px) {
-  /* 手機版將 Footer 變成上下排列 */
-  .article-footer {
+.blockquote-text {
+    font-size: 18px; 
+  }
+  
+.article-footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
