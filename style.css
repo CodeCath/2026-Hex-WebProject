@@ -1115,3 +1115,403 @@ a { text-decoration: none; color: inherit; }
   /* 如果 Hero 區塊的 Hello I'm Nelson 在手機上覺得太大，也可以在這裡順手縮小 */
   /* .title-xxl { font-size: 40px; } */ /* 視情況可以打開這行 */
 }
+
+
+
+/* =========================================
+   Blog Page (部落格專屬樣式)
+   ========================================= */
+
+/* --- 1. Page Banner (頂部橫幅) --- */
+.page-banner {
+  /* 疊加 40% 黑色遮罩 */
+  background-image: linear-gradient(var(--color-dark-40a), var(--color-dark-40a)), 
+                    url('https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/blog_banner.png?raw=true');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 320px;
+  position: relative;
+  overflow: hidden; 
+}
+
+.page-banner .container {
+  height: 100%;
+  position: relative;
+  z-index: 1; 
+}
+
+.page-banner__title {
+  margin-bottom: 8px; 
+}
+
+/* 巨型背景字：精準沉底 -100px */
+.page-banner__bg-text {
+  position: absolute;
+  color: var(--color-primary-50); 
+  opacity: 0.2;
+  z-index: -1; 
+  bottom: -100px; 
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none; 
+  user-select: none;
+  line-height: 1;
+}
+
+/* --- 2. Blog Content Layout (主要內容佈局) --- */
+.blog-content {
+  padding: 80px 0; 
+}
+
+.blog-layout {
+  gap: 24px; 
+}
+
+.blog-sidebar {
+  flex: 0 0 196px; 
+}
+
+/* 左側選單樣式 */
+.category-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-link {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  width: 180px;
+  height: 51px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-neutral-700);
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.category-link:hover {
+  background-color: var(--color-primary-100); 
+}
+
+.category-link.active {
+  background-color: var(--color-primary-900);
+  color: var(--color-neutral-0);
+}
+
+.blog-articles {
+  flex: 1; 
+  min-width: 0; 
+}
+
+/* =========================================
+   3. Article Cards (桌機預設：左圖右文)
+   ========================================= */
+.article-card {
+  display: flex;
+  flex-direction: row; /* 🎯 明確鎖死桌機版為橫向排列 */
+  gap: 24px; 
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.article-card:hover {
+  opacity: 0.8;
+}
+
+.article-card__image {
+  flex: 0 0 526px; /* 🎯 鎖死桌機版圖片寬度 */
+  height: 256px;
+}
+
+.article-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.article-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 57.5px 0; 
+}
+
+
+/* =========================================
+   📱 RWD: Article Cards (手機尺寸小於 768px)
+   ========================================= */
+@media (max-width: 767.98px) {
+  
+  /* 🎯 以下這些規則「只有」在手機版才會啟動 */
+  .article-card {
+    flex-direction: column; /* 變成上下堆疊 */
+    gap: 16px;
+  }
+
+  .article-card__image {
+    flex: none;
+    width: 100%; /* 圖片釋放為全寬 */
+    height: auto;
+    aspect-ratio: 16 / 10; 
+  }
+
+  .article-card__content {
+    padding: 0; 
+  }
+
+}
+
+
+/* --- 4. Pagination (頁數列) --- */
+.pagination {
+  margin-top: 80px; 
+  height: 44px;     
+  justify-content: flex-end; /* 靠右對齊 */
+}
+
+.page-list {
+  gap: 8px; /* 每個頁碼按鈕之間的微小間距 */
+}
+
+.page-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;  /* 點擊範圍寬度 */
+  height: 44px; /* 點擊範圍高度，符合你設定的 44px 高 */
+  border-radius: 50%; /* 完美的正圓形 */
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-neutral-900);
+  transition: all 0.3s ease;
+}
+
+/* 滑鼠移過去時的微回饋 */
+.page-link:hover {
+  background-color: var(--color-primary-100);
+}
+
+/* 當前所在的頁數 (黑底白字) */
+.page-link.active {
+  background-color: var(--color-primary-900);
+  color: var(--color-neutral-0);
+}
+
+/* ... 刪節號樣式 */
+.page-ellipsis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--color-neutral-900);
+}
+
+/* =========================================
+   📱 RWD: Blog Page (平板與手機尺寸)
+   ========================================= */
+@media (max-width: 991.98px) {
+  .blog-layout {
+    flex-direction: column;
+  }
+  
+  .blog-sidebar {
+    flex: none;
+    width: 100%;
+  }
+
+  /* 🎯 平板/手機版：選單變成完美水平滾動 */
+  .category-menu {
+    flex-direction: row;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    
+    /* 🎯 突破 Container 限制，讓選單可以滑到螢幕最邊緣 */
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    
+    /* 隱藏醜醜的系統滾動條 */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .category-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-link {
+    flex: 0 0 auto; /* 絕對不允許被擠壓變形 */
+    width: auto; 
+    padding: 0 16px; /* 用左右內距撐開按鈕 */
+    height: 40px; 
+    font-size: 16px; 
+    
+    /* 🎯 終極防禦魔法：強制文字絕對不准換行！ */
+    white-space: nowrap; 
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-banner__subtitle {
+    font-size: 40px; 
+  }
+
+  .page-banner__bg-text {
+    font-size: 160px; 
+    bottom: -50px;   
+  }
+
+  .blog-content {
+    padding: 40px 0; 
+  }
+  
+  .pagination {
+    margin-top: 40px; 
+  }
+
+
+/* 🎯 手機版：卡片變回上下堆疊 */
+  .article-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .article-card__image {
+    flex: none;
+    width: 100%;
+    height: auto;
+    /* 保持圖片的 16:10 完美比例 */
+    aspect-ratio: 16 / 10; 
+  }
+
+  .article-card__content {
+    padding: 0; 
+  }
+
+  }
+
+/* =========================================
+   2. Article Content (文章大區塊容器)
+   ========================================= */
+.article-content {
+  padding: 80px 0; /* 🎯 補回這最重要的上下 80px 留白！ */
+}
+
+.container-article {
+  max-width: 1076px; /* 🎯 確保左右 422px 的窄版閱讀寬度 */
+  margin: 0 auto;
+  padding: 0 12px; /* 手機版安全內距 */
+}  
+
+.breadcrumbs {
+    padding: 12px 0;
+}
+
+/* --- 文章主體排版細節 --- */
+
+/* 🎯 讓 Body 裡面的每個直系子元素，都有 16px 的 padding-top */
+.article-body > * {
+  padding-top: 16px; 
+}
+
+.article-body p {
+  font-size: 16px;
+  line-height: 1.8; 
+  /* 為了不與 padding-top 衝突，下邊距微調 */
+  margin-bottom: 8px; 
+}
+
+.article-h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.article-h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+
+/* --- 🎯 Table 表格設計 --- */
+.table-responsive {
+  overflow-x: auto; /* 手機版表格防爆版 */
+  margin-bottom: 16px;
+}
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.article-table th {
+  background-color: var(--color-neutral-900); /* #24140B */
+  color: var(--color-neutral-0); /* #FFFFFF */
+  font-size: 16px;
+  font-weight: 500;
+  padding: 16px 24px; /* 🎯 左右 24px，上下抓 16px 保持美觀 */
+  text-align: left;
+}
+
+.article-table td {
+  background-color: var(--color-primary-50); /* #FDF7F1 */
+  color: var(--color-neutral-900); /* #24140B */
+  font-size: 16px;
+  font-weight: 500;
+  padding: 16px 24px;
+  border-bottom: 1px solid #EBE4DD; /* 加上極淡的底線讓表格更好閱讀 */
+}
+
+
+/* --- 🎯 Article Footer 文章結尾 --- */
+.article-footer {
+  border-top: 1px solid #737373; /* 設計稿指定的邊框顏色 */
+  padding-top: 24px; /* 與分隔線的距離 */
+}
+
+/* 分享圓圈按鈕 */
+.share-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-neutral-900);
+  color: var(--color-neutral-900);
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  background-color: var(--color-neutral-900);
+  color: var(--color-neutral-0);
+}
+
+/* =========================================
+   📱 RWD: Blog Article (手機版微調)
+   ========================================= */
+@media (max-width: 767.98px) {
+  /* 手機版將 Footer 變成上下排列 */
+  .article-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+
+
+/* --- 3. Related Blog (相關文章區) --- */
+.related-blog {
+  padding: 80px 0; /* 🎯 一次搞定上下 80px 留白 */
+}
+
