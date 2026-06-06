@@ -1,8 +1,8 @@
 # 🚀 2026 Web Camp - 個人專案切版紀錄與 AI 協作覆盤
 
-**[Live Demo 預覽連結]** (請填入你的 GitHub Pages 網址)
+**[https://codecath.github.io/2026-Hex-WebProject/](https://codecath.github.io/2026-Hex-WebProject/)**
 
-這份專案是我將[設計稿](https://www.figma.com/design/kOYSDHQieVlOWIr4PPnuQX/%E5%85%AD%E8%A7%92%EF%BD%9C2026%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%AB%94%E9%A9%97%E7%87%9F%E8%A8%AD%E8%A8%88%E7%A8%BF?node-id=11107-13669&p=f&t=B6SPI5TkAfwE6qYx-0)轉化為高互動性靜態網頁的實戰紀錄。本次開發是我首次使用 OOCSS 架構及與 AI協作完成第三級 - 最終任務 - 個人品牌網站
+這份專案是我將 [設計稿] (https://www.figma.com/design/kOYSDHQieVlOWIr4PPnuQX/%E5%85%AD%E8%A7%92%EF%BD%9C2026%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%AB%94%E9%A9%97%E7%87%9F%E8%A8%AD%E8%A8%88%E7%A8%BF?node-id=11107-13669&p=f&t=B6SPI5TkAfwE6qYx-0)轉化為高互動性靜態網頁的實戰紀錄。本次開發是我首次使用 OOCSS 架構及與 AI協作完成第三級 - 最終任務 - 個人品牌網站
 
 ---
 
@@ -46,6 +46,14 @@
 3. **Grid 與 Flex 的選擇:** 專案卡片需要交疊效果時，使用 `CSS Grid` 強制將圖片與內容卡片定位在同一個 `grid-row` 是目前最優雅且穩定的做法。
 
 ---
+
+# 個人感受 
+
+1. 這次是我第一次完整用 OOCSS 去做架構的案子，以往沒有 AI 時，我幾乎是一塊一塊去完成一頁，但下次做，還是會多放時間去想全域架構，減少更多後頁重複的工作
+
+2. 完整 design system 真的很有用，我一開始把顏色、字型大小比例的圖片掉給AI，還有組織重複使用的區塊（例如各區大小標題）給他整理全域，選好我習慣命名的方式，這個有完善的 design system 真的好好整理
+
+3. 我認為自己對 Javascript 的掌握程度很低，因為想設計上完成度高一點，所以這部分並沒有投資太多時間，主力交給AI，重用之前習作的 JS 再讓 AI 改善
 
 # 🧠 AI 給我的評語 (AI Collaboration Review)
 
