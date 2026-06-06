@@ -39,6 +39,10 @@
 
   --font-family-base: "Noto Sans", sans-serif;
 }
+/* 讓所有錨點連結都有平滑滾動的動畫效果 */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-family-base);
@@ -181,8 +185,19 @@ a { text-decoration: none; color: inherit; }
   z-index: 100;
 }
 .navbar__menu { gap: 32px; }
-.navbar__link { transition: opacity 0.3s ease; }
-.navbar__link:hover { opacity: 0.7; }
+
+/* 🎯 根據 Design System 標示更新的 Nav Item */
+.navbar__link { 
+  display: inline-block;
+  padding: 4px 12px;     
+  transition: all 0.3s ease; 
+}
+
+/* 🎯 Hover 與 Active (當前頁面) 狀態：深灰底、白字 */
+.navbar__link:hover { 
+  background-color: var(--color-neutral-700); 
+  color: var(--color-neutral-0); 
+}
 .navbar__toggle, .navbar__mobile-header, .navbar__overlay { display: none; }
 
 @media (max-width: 767.98px) {
