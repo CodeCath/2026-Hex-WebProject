@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>專案作品 - Nelson</title>
+</head>
+<body>
+    
+    <nav class="navbar bg-primary-50">
+      <div class="container d-flex justify-between align-center">
+          <a href="index.html" class="navbar__logo">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/47001d42324ec6a2c7d00cc74ea79d70c57d578a/2026-web-camp/device-pc.svg" alt="Nelson Logo"> 
+          </a>
+          <button class="navbar__toggle" id="menu-toggle">
+            <span class="material-symbols-outlined">dehaze</span>
+          </button>
+          <div class="navbar__collapse" id="navbar-collapse">
+            <div class="navbar__overlay" id="menu-overlay"></div>
+            <div class="navbar__menu-wrapper bg-primary-50">
+                <div class="navbar__mobile-header d-flex justify-between align-center">
+                <a href="index.html" class="navbar__logo">
+                    <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/47001d42324ec6a2c7d00cc74ea79d70c57d578a/2026-web-camp/device-mobile.svg" alt="Nelson Logo"> 
+                </a>
+                <button class="navbar__close" id="menu-close">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                </div>
+                <ul class="navbar__menu d-flex">
+                <li><a href="#" class="navbar__link text-md text-neutral-700">服務項目</a></li>
+                <li><a href="projects.html" class="navbar__link active text-md text-neutral-700">專案作品</a></li>
+                <li><a href="blog.html" class="navbar__link text-md text-neutral-700">部落格</a></li>
+                <li><a href="#" class="navbar__link text-md text-neutral-700">與我聯絡</a></li>
+                </ul>
+            </div>
+          </div>
+      </div>
+    </nav>
+
+    <main class="projects-page">
+        
+        <!-- 1. 頂部橫幅 Banner -->
+        <!-- 已加上 projects-banner class 交給 CSS 處理背景圖 -->
+        <section class="page-banner projects-banner" data-aos="fade-in">
+          <div class="container relative d-flex flex-column justify-center align-center h-100">
+            <div class="page-banner__bg-text display-1">PROJECTS</div>
+            <h1 class="page-banner__title title-xxxl text-white">PROJECTS</h1>
+            <p class="page-banner__subtitle title-xxl text-white">專案作品</p>
+          </div>
+        </section>
+
+        <!-- 2. 分類選單區塊 -->
+        <section class="project-filter-section bg-neutral-0">
+          <div class="container">
+            <ul class="project-menu d-flex justify-center" data-aos="fade-up">
+              <!-- 使用 li 包覆確保 flex 佈局順暢 -->
+              <li class="project-menu__item"><a href="#" class="project-link active">全部</a></li>
+              <li class="project-menu__item"><a href="#" class="project-link">平面設計</a></li>
+              <li class="project-menu__item"><a href="#" class="project-link">網頁設計</a></li>
+              <li class="project-menu__item"><a href="#" class="project-link">前端切版</a></li>
+              <li class="project-menu__item"><a href="#" class="project-link">後端開發</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 3. 專案列表區塊 -->
+        <!-- 加上 bg-neutral-0 與 projects-content-section 來控制白底與留白 -->
+        <section class="projects bg-neutral-0 projects-content-section">
+          <div class="container" data-aos="fade-up">
+            
+            <div class="projects__list d-flex flex-column">
+              <!-- 卡片 1 -->
+              <div class="project-card">
+                  <div class="project-card__image">
+                    <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_1.png?raw=true" alt="多肉植物品牌電商">
+                  </div>
+                  <div class="project-card__content bg-neutral-0 text-neutral-700">
+                    <p class="text-sm text-neutral-500">Oct 16, 2026</p>
+                    <p class="text-md text-neutral-700">平面設計 · 網頁設計</p>
+                    <h3 class="title-sm text-neutral-700">品牌視覺與電商整合，多肉植物品牌電商建置</h3>
+                    <p class="text-md text-neutral-500">從品牌識別到 RWD 網站開發，打造極致系統購物體驗</p>
+                    <a href="#" class="btn bg-neutral-700 text-white text-md">前往專案</a>
+                  </div>
+              </div>
+
+              <!-- 卡片 2 -->
+              <div class="project-card">
+                  <div class="project-card__image">
+                    <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_2.png?raw=true" alt="數位產品 UIUX 設計">
+                  </div>
+                  <div class="project-card__content bg-neutral-0 text-neutral-900">
+                    <p class="text-sm text-neutral-500">Oct 16, 2026</p>
+                    <p class="text-md text-neutral-700">平面設計 · 網頁設計 · 前端切版</p>
+                    <h3 class="title-sm text-neutral-700">數位產品 UI/UX 設計，個人化財務視覺化軟體</h3>
+                    <p class="text-md text-neutral-500">運用數據視覺化邏輯，將複雜的財務數據轉化為直覺的操作介面</p>
+                    <a href="#" class="btn bg-neutral-700 text-white text-md">前往專案</a>
+                  </div>
+              </div>
+
+              <!-- 卡片 3 -->
+              <div class="project-card">
+                  <div class="project-card__image">
+                    <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_3.png?raw=true" alt="法式甜點品牌視覺">
+                  </div>
+                  <div class="project-card__content bg-neutral-0 text-neutral-900">
+                    <p class="text-sm text-neutral-500">Oct 16, 2026</p>
+                    <p class="text-md text-neutral-700">前端切版 · 後端開發</p>
+                    <h3 class="title-sm text-neutral-700">品牌識別與包裝設計，法式甜點品牌視覺重塑</h3>
+                    <p class="text-md text-neutral-500">以溫暖、精緻的視覺語言，精準定位高質感的甜點市場品牌形象</p>
+                    <a href="#" class="btn bg-neutral-700 text-white text-md">前往專案</a>
+                  </div>
+              </div>
+            </div>
+
+            <!-- 探索更多按鈕 -->
+            <div class="explore-more-wrapper d-flex justify-center">
+              <a href="#" class="btn bg-neutral-700 text-white text-md">探索更多</a>
+            </div>
+
+          </div>
+        </section>
+
+    </main>
+
+    <section class="contact bg-primary-900 text-white">
+      <div class="container">
+          <div class="contact__inner">
+            <div class="contact__text">
+              <div class="contact__header mb-6">
+                <p class="title-xxxs mb-2">與我聯絡</p>
+                <h2 class="title-xxxl">CONTACT</h2>
+              </div>
+              <p class="text-md mb-6" style="line-height: 1.8;">
+                若有數位產品設計和開發相關問題<br>
+                歡迎填寫表單 或 直接與我聯絡！
+              </p>
+            </div>
+            <form class="contact__form">
+              <div class="form-row d-flex">
+                <input class="form-input text-md" type="text" placeholder="姓名" required />
+                <input class="form-input text-md" type="tel" placeholder="手機號碼" required />
+              </div>
+              <input class="form-input text-md" type="email" placeholder="電子信箱" required />
+              <textarea class="form-textarea text-md" placeholder="備註"></textarea>
+              <button type="submit" class="btn bg-neutral-0 text-neutral-700 title-xxxs submit-btn">送出</button>
+            </form>
+            <div class="contact__social-group">
+              <div class="contact__socials d-flex align-center mb-4" style="gap: 12px;">
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-line"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+              </div>
+              <div class="contact__email text-md d-flex align-center gap-2">
+                <span class="material-symbols-outlined" style="font-size: 20px;">mail</span> 
+                service@hexschool.com
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         專案彈出視窗 (Project Modal)
+         ========================================= -->
+    <div class="project-modal-overlay" id="projectModal">
+      <div class="project-modal-content" data-aos="zoom-in">
+        
+        <div class="project-modal-body bg-primary-50">
+          
+          <div class="modal-header bg-neutral-0">
+            <button class="modal-close-btn" id="closeModalBtn">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <div class="modal-banner projects-modal-banner-1"></div>
+
+          <div class="modal-text-area bg-neutral-0">
+            
+            <div class="modal-meta d-flex justify-between align-center">
+              <span class="text-md text-neutral-500" >平面設計 · 網頁設計</span>
+              <span class="text-md text-neutral-500">Oct 16, 2026</span>
+            </div>
+
+            <div class="modal-title-group">
+              <h2 class="modal-title text-neutral-900">品牌視覺與電商整合，多肉植物品牌電商建置</h2>
+              <p class="modal-subtitle text-neutral-900">從品牌識別設計到 RWD 網站開發，打造極致系統購物體驗</p>
+            </div>
+
+            <div class="modal-intro d-flex">
+              <div class="intro-left text-neutral-700">
+                <p>我們將大自然帶入生活化為數位語彙，透過包含大地色系與植物版塊，為「PLANTIQUE LIFE」建構出專屬視覺語彙。在開發過程中，我們秉持著對細節的極致追求，確保從 Logo 到每一個鏈結件的轉場，皆展現優雅與精準。</p>
+              </div>
+              
+              <div class="intro-divider"></div>
+              
+              <div class="intro-right text-neutral-700">
+                <ul>
+                  <li>設計原則：極簡藝術、日系風格、體驗視覺</li>
+                  <li>開發方式：Bootstrap、Javascript</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="modal-image-area">
+            <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_modal_pic.png?raw=true" alt="專案詳細內容">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+          duration: 1500,
+          once: true      
+      });
+    </script>
+    <script src="all.js"></script>
+</body>
+</html>

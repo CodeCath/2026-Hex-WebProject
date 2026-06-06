@@ -1529,7 +1529,7 @@ a { text-decoration: none; color: inherit; }
 .blockquote-text {
     font-size: 18px; 
   }
-  
+
 .article-footer {
     flex-direction: column;
     align-items: flex-start;
@@ -1543,3 +1543,278 @@ a { text-decoration: none; color: inherit; }
   padding: 80px 0; /* 🎯 一次搞定上下 80px 留白 */
 }
 
+
+/* =========================================
+   Projects Page (專案作品專屬樣式)
+   ========================================= */
+
+/* --- 1. 頂部橫幅 Banner --- */
+.projects-banner {
+  /* 替換成實際專案的 Banner 圖片 */
+  background-image: linear-gradient(var(--color-dark-40a), var(--color-dark-40a)), 
+                    url('https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_banner.png?raw=true');
+}
+
+/* --- 2. 分類選單區塊 --- */
+.project-filter-section {
+  padding: 40px 0; 
+}
+
+.project-menu {
+  list-style: none;
+  width: 100%; /* 確保選單外框佔滿整個容器 */
+}
+
+.project-menu__item {
+  flex: 1; /* 🎯 關鍵魔法：讓每個 <li> 平均分配空間，完美撐滿 1296px！ */
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 51px;
+  width: 100%; /* 讓 a 標籤填滿 li 的寬度 */
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-neutral-700);
+  background-color: transparent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: var(--color-primary-100);
+}
+
+.project-link.active {
+  background-color: var(--color-neutral-900);
+  color: var(--color-neutral-0);
+}
+
+/* --- 3. 專案列表區塊細節 --- */
+.projects-content-section {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.explore-more-wrapper {
+  margin-top: 80px;
+}
+
+/* =========================================
+   📱 RWD: Projects Page (平板與手機尺寸)
+   ========================================= */
+@media (max-width: 991.98px) {
+  
+  /* 手機版：恢復水平滾動 */
+  .project-menu {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .project-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project-menu__item {
+    flex: 0 0 auto; /* 手機版不均分寬度，改由 padding 撐開 */
+  }
+
+  .project-link {
+    white-space: nowrap; 
+    padding: 0 24px;
+  }
+}
+
+
+/* =========================================
+   🎉 Project Modal (專案彈出視窗)
+   ========================================= */
+
+/* 1. 全螢幕黑色半透明遮罩 */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* 🎯 精準的 #000000 60% */
+  z-index: 9999; /* 確保它在所有東西的最上層 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* 預設隱藏 */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* 顯示時的狀態 */
+.project-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 2. 中間的白底視窗容器 */
+/* =========================================
+   Project Modal 內部排版 (替換舊樣式)
+   ========================================= */
+
+.project-modal-content {
+  width: 90%;
+  max-width: 1076px; 
+  height: 90vh;      
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+}
+
+/* 滾動區底色設為 #FDF7F1 (對應下面的圖片區背景) */
+.project-modal-body {
+  overflow-y: auto; 
+  width: 100%;
+  height: 100%;
+}
+
+/* --- 區塊 1: Header --- */
+.modal-header {
+  height: 72px;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end; /* 讓按鈕靠右 */
+  align-items: center;
+}
+
+.modal-close-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-neutral-500);
+  transition: color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  color: var(--color-neutral-900);
+}
+
+.modal-close-btn span {
+  font-size: 32px;
+}
+
+/* --- 區塊 2: Banner --- */
+.projects-modal-banner-1 {
+  height: 294px;
+  background-image: url('https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_1.png?raw=true');
+  background-size: cover;
+  background-position: center;
+}
+
+/* --- 區塊 3: 文字區 --- */
+.modal-text-area {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* 🎯 每行文字之間的 24px 間距 */
+}
+
+/* Title 區設定 */
+.modal-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.modal-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 簡介文設定 */
+.modal-intro {
+  display: flex;
+  justify-content: space-between; /* 🎯 採用你提議的 space-between！讓元素向兩側推開 */
+  align-items: center; /* 讓左右文字與中間的分隔線垂直對齊 */
+}
+
+.intro-left {
+  flex: 0 0 65%; /* 🎯 左側文字較多，固定給它約 65% 的空間 */
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.intro-divider {
+  width: 1px;
+  height: 48px; /* 🎯 根據你截圖的精準數據，設定高度為 48px */
+  background-color: #737373;
+}
+
+.intro-right {
+  flex: 0 0 auto; /* 🎯 讓右側區塊根據文字長度自動收縮，自然被推到最右側邊緣！ */
+  display: flex;
+  align-items: center;
+}
+
+.intro-right ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* 移除預設外距，確保對齊精準 */
+  display: flex;
+  flex-direction: column;
+  gap: 16px; 
+  font-size: 16px;
+}
+
+/* --- 區塊 4: 下面區 (圖片) --- */
+.modal-image-area {
+  padding: 80px 178px; /* 🎯 上下 80px，左右 178px */
+}
+
+.modal-image-area img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   📱 RWD: Modal 手機版微調
+   ========================================= */
+@media (max-width: 991.98px) {
+  
+  /* 釋放左右 178px 的巨大留白，避免手機圖片縮太小 */
+  .modal-image-area {
+    padding: 40px 24px; 
+  }
+
+  /* 簡介文變成上下排列 */
+  .modal-intro {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .intro-divider {
+    width: 100%;
+    height: 1px;
+  }
+}

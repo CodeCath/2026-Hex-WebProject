@@ -59,3 +59,38 @@ sliders.forEach(slider => {
     slider.scrollLeft = scrollLeft - walk;
   });
 });
+
+
+// =========================================
+// Project Modal (彈出視窗互動邏輯)
+// =========================================
+const projectModal = document.getElementById('projectModal');
+const closeModalBtn = document.getElementById('closeModalBtn');
+// 抓取畫面上所有的「前往專案」按鈕
+const openModalBtns = document.querySelectorAll('.project-card .btn');
+
+if (projectModal && closeModalBtn) {
+  
+  // 1. 點擊「前往專案」打開 Modal
+  openModalBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); // 防止 a 標籤預設的跳轉行為
+      projectModal.classList.add('active');
+      document.body.classList.add('modal-open'); // 鎖定背景不讓它跟著滾動
+    });
+  });
+
+  // 2. 點擊「X」關閉 Modal
+  closeModalBtn.addEventListener('click', function() {
+    projectModal.classList.remove('active');
+    document.body.classList.remove('modal-open');
+  });
+
+  // 3. 點擊「黑色遮罩 (視窗外圍)」也能關閉 Modal，體驗更好！
+  projectModal.addEventListener('click', function(e) {
+    if (e.target === projectModal) {
+      projectModal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+  });
+}
