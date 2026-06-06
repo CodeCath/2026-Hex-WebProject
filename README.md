@@ -1,8 +1,8 @@
 # 🚀 2026 Web Camp - 個人專案切版紀錄與 AI 協作覆盤
 
-**[https://codecath.github.io/2026-Hex-WebProject/](https://codecath.github.io/2026-Hex-WebProject/)**
+🔗 **[https://codecath.github.io/2026-Hex-WebProject/](https://codecath.github.io/2026-Hex-WebProject/)**
 
-這份專案是我將 [設計稿] (https://www.figma.com/design/kOYSDHQieVlOWIr4PPnuQX/%E5%85%AD%E8%A7%92%EF%BD%9C2026%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%AB%94%E9%A9%97%E7%87%9F%E8%A8%AD%E8%A8%88%E7%A8%BF?node-id=11107-13669&p=f&t=B6SPI5TkAfwE6qYx-0)轉化為高互動性靜態網頁的實戰紀錄。本次開發是我首次使用 OOCSS 架構及與 AI協作完成第三級 - 最終任務 - 個人品牌網站
+**這份專案是我將 ([設計稿](https://www.figma.com/design/kOYSDHQieVlOWIr4PPnuQX/%E5%85%AD%E8%A7%92%EF%BD%9C2026%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%AB%94%E9%A9%97%E7%87%9F%E8%A8%AD%E8%A8%88%E7%A8%BF?node-id=11107-13669&p=f&t=B6SPI5TkAfwE6qYx-0)) 轉化為高互動性靜態網頁的實戰紀錄。本次開發是我首次使用 OOCSS 架構及與 AI協作完成第三級 - 最終任務 - 個人品牌網站**
 
 ---
 
