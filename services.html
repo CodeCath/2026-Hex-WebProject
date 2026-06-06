@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>服務項目 - Nelson</title>
+</head>
+<body>
+    
+    <nav class="navbar bg-primary-50">
+    <div class="container d-flex justify-between align-center">
+        
+        <a href="index.html" class="navbar__logo">
+        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/47001d42324ec6a2c7d00cc74ea79d70c57d578a/2026-web-camp/device-pc.svg" alt="Nelson Logo"> 
+        </a>
+
+        <button class="navbar__toggle" id="menu-toggle">
+        <span class="material-symbols-outlined">dehaze</span>
+        </button>
+
+        <div class="navbar__collapse" id="navbar-collapse">
+        <div class="navbar__overlay" id="menu-overlay"></div>
+        
+        <div class="navbar__menu-wrapper bg-primary-50">
+            
+            <div class="navbar__mobile-header d-flex justify-between align-center">
+            <a href="index.html" class="navbar__logo">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/47001d42324ec6a2c7d00cc74ea79d70c57d578a/2026-web-camp/device-mobile.svg" alt="Nelson Logo"> 
+            </a>
+            <button class="navbar__close" id="menu-close">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            </div>
+
+            <ul class="navbar__menu d-flex">
+            <li><a href="services.html" class="navbar__link active text-md text-neutral-700">服務項目</a></li>
+            <li><a href="projects.html" class="navbar__link text-md text-neutral-700">專案作品</a></li>
+            <li><a href="blog.html" class="navbar__link text-md text-neutral-700">部落格</a></li>
+            <li><a href="#" class="navbar__link text-md text-neutral-700">與我聯絡</a></li>
+            </ul>
+
+        </div>
+        </div>
+
+    </div>
+    </nav>
+
+    <main class="services-page">
+        
+        <section class="services-hero" style="background-image: linear-gradient(var(--color-dark-40a), var(--color-dark-40a)), url('https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/service_banner.png?raw=true');" data-aos="fade-in">
+          
+          <div class="services-hero__inner d-flex flex-column align-center justify-center h-100">
+            
+            <div class="services-title-group text-center">
+              <h1 class="page-banner__title title-xxxl text-white">SERVICES</h1>
+              <p class="page-banner__subtitle title-xxl text-white">服務項目</p>
+            </div>
+
+            <div class="services-tabs-container">
+              <div class="services-tabs d-flex">
+                
+                <a href="#graphic" class="service-tab active" data-target="graphic">
+                  <span class="material-symbols-outlined tab-icon">draw</span>
+                  <span class="tab-en">GRAPHIC</span>
+                  <span class="tab-tw">平面設計</span>
+                </a>
+
+                <a href="#website" class="service-tab" data-target="website">
+                  <span class="material-symbols-outlined tab-icon">desktop_windows</span>
+                  <span class="tab-en">WEBSITE</span>
+                  <span class="tab-tw">網頁設計</span>
+                </a>
+
+                <a href="#frontend" class="service-tab" data-target="frontend">
+                  <span class="material-symbols-outlined tab-icon">code</span>
+                  <span class="tab-en">FRONTEND</span>
+                  <span class="tab-tw">前端切版</span>
+                </a>
+
+                <a href="#backend" class="service-tab" data-target="backend">
+                  <span class="material-symbols-outlined tab-icon">dns</span>
+                  <span class="tab-en">BACKEND</span>
+                  <span class="tab-tw">後端開發</span>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="services-content-area bg-primary-900 text-white" id="services-dynamic-content">
+          
+          <div class="service-content-block active" id="content-graphic">
+            
+            <div class="service-steps">
+              <div class="container">
+                <div class="steps">
+                  
+                  <div class="steps-title">
+                    <p class="title-xxxs mb-2">SERVICE STEPS</p>
+                    <h2 class="title-xxxl">服務流程</h2>
+                  </div>
+
+                  <ol class="steps-list">
+                    <li>
+                      <div class="circle line title-xxxs">1</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">需求訪談與視覺定位</h3>
+                        <p class="text-md text-neutral-500">深度溝通品牌核心價值，確認目標受眾與視覺風格，制定符合商業邏輯的設計藍圖。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle line title-xxxs">2</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">概念發展與方案提案</h3>
+                        <p class="text-md text-neutral-500">將抽象概念具象化，提供多層次的設計提案，確保視覺語言精準傳遞品牌獨特魅力。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle line title-xxxs">3</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">匠心編排與細節校正</h3>
+                        <p class="text-md text-neutral-500">針對初稿進行多輪細緻微調，優化排版層次與色彩表現，追求美學與易讀性的完美平衡。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle title-xxxs">4</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">專業檔案交付結案</h3>
+                        <p class="text-md text-neutral-500">提供完整原始碼與多樣格式輸出，並附上使用規範建議，確保品牌形象在各處始終如一。</p>
+                      </div>
+                    </li>
+                  </ol>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="user-case bg-neutral-0">
+              <div class="container">
+                
+                <div class="user-case__header mb-6">
+                  <p class="title-xxxs mb-2 text-neutral-500">USER CASE</p>
+                  <h2 class="title-xxxl text-neutral-900">客戶案例</h2>
+                </div>
+
+                <div class="user-case__list">
+                  
+                  <a href="projects.html" class="case-card">
+                    <div class="case-card__image">
+                      <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_1.png?raw=true" alt="多肉植物品牌電商">
+                    </div>
+                    <div class="case-card__content text-neutral-900">
+                      
+                      <div class="case-card__meta d-flex justify-between align-center mb-2 text-sm text-neutral-500">
+                        <span>平面設計 · 網頁設計</span>
+                        <span>Oct 16, 2026</span>
+                      </div>
+                      
+                      <h3 class="title-sm mb-2">品牌視覺與電商整合，多肉植物品牌電商建置</h3>
+                      
+                      <div class="case-card__bottom d-flex justify-between align-center mt-4">
+                        <p class="text-md text-neutral-500" style="max-width: 80%;">從品牌識別設計到 RWD 網站開發，打造療癒系植栽購物體驗</p>
+                        
+                        <div class="case-btn-circle bg-neutral-900 text-white">
+                          <span class="material-symbols-outlined">arrow_forward</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </a>
+
+                  <a href="projects.html" class="case-card">
+                    <div class="case-card__image">
+                      <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_2.png?raw=true" alt="個人化財務視覺化軟體">
+                    </div>
+                    <div class="case-card__content text-neutral-900">
+                      
+                      <div class="case-card__meta d-flex justify-between align-center mb-2 text-sm text-neutral-500">
+                        <span>平面設計 · 網頁設計 · 前端切版</span>
+                        <span>Oct 16, 2026</span>
+                      </div>
+                      
+                      <h3 class="title-sm mb-2">數位產品 UI/UX 設計，個人化財務視覺化軟體</h3>
+                      
+                      <div class="case-card__bottom d-flex justify-between align-center mt-4">
+                        <p class="text-md text-neutral-500" style="max-width: 80%;">運用數據視覺化邏輯，將複雜的財務數據轉化為直覺的操作介面</p>
+                        
+                        <div class="case-btn-circle bg-neutral-900 text-white">
+                          <span class="material-symbols-outlined">arrow_forward</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </a>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="faq-section bg-primary-50">
+              <div class="container d-flex justify-between">
+                
+                <div class="faq-title text-neutral-700">
+                  <p class="title-xxxs mb-2">F.A.Q</p>
+                  <h2 class="title-xxxl">常見問題</h2>
+                </div>
+
+                <div class="faq-list-container">
+                  <ul class="faq-list">
+                    
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">01</span>
+                        <h3 class="title-xxxs">設計提案後包含幾次修改機會？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">
+                          包含三次修改機會。
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">02</span>
+                        <h3 class="title-xxxs">結案時我會收到哪些格式的檔案？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">
+                          以 HTML、CSS、JavaScript 為主。
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">03</span>
+                        <h3 class="title-xxxs">平面設計的成果，未來能直接應用在網頁嗎？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">
+                          沒問題。由於我兼具 UI/UX 設計與前端工程背景，在執行平面設計時會預先考量數位載體的適配性。這意味著您的品牌識別能無縫轉譯至網頁介面，限制後續開發的重複溝通，更能確保品牌在不同平台上的視覺品質。
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">04</span>
+                        <h3 class="title-xxxs">完成一套完整的設計流程需要多久？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">
+                          視專案複雜度而定，一般約需 10 到 14 個工作日。透過嚴格執行的「四步驟流程」，我們能確保每個階段都有明確的進度產出，有效避免時程延宕。若有特定的上線期限，歡迎在訪談階段提出，我會為您評估最合適的排程。
+                        </div>
+                      </div>
+                    </li>
+
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div> 
+          
+          <div class="service-content-block" id="content-website">
+            
+            <div class="service-steps">
+              <div class="container">
+                <div class="steps">
+                  <div class="steps-title">
+                    <p class="title-xxxs mb-2">SERVICE STEPS</p>
+                    <h2 class="title-xxxl">服務流程</h2>
+                  </div>
+                  <ol class="steps-list">
+                    <li>
+                      <div class="circle line title-xxxs">1</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">資訊架構與動線規劃</h3>
+                        <p class="text-md text-neutral-500">梳理網站核心目標，繪製 Wireframe (線框圖) 與 User Flow，確保使用者的瀏覽動線直覺且流暢。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle line title-xxxs">2</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">UI 視覺風格定調</h3>
+                        <p class="text-md text-neutral-500">延伸品牌識別元素，設計 High-Fidelity (高保真) 介面，為數位體驗注入符合品牌靈魂的美學風格。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle line title-xxxs">3</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">互動原型與跨螢測試</h3>
+                        <p class="text-md text-neutral-500">製作可互動的 Prototype，並進行 RWD (響應式) 跨螢幕斷點檢視，確保電腦、平板與手機的體驗一致。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle title-xxxs">4</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">設計系統交付開發</h3>
+                        <p class="text-md text-neutral-500">整理完善的 UI Guideline 與 Design System (設計系統)，確保後續工程團隊能精準還原每一個像素。</p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="user-case bg-neutral-0">
+              <div class="container">
+                <div class="user-case__header mb-6">
+                  <p class="title-xxxs mb-2 text-neutral-500">USER CASE</p>
+                  <h2 class="title-xxxl text-neutral-900">客戶案例</h2>
+                </div>
+                <div class="user-case__list">
+                  <a href="projects.html" class="case-card">
+                    <div class="case-card__image">
+                      <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2026-web-camp/project_3.png?raw=true" alt="國際精品電商">
+                    </div>
+                    <div class="case-card__content text-neutral-900">
+                      <div class="case-card__meta d-flex justify-between align-center mb-2 text-sm text-neutral-500">
+                        <span>網頁設計 · UIUX 設計</span>
+                        <span>Aug 12, 2026</span>
+                      </div>
+                      <h3 class="title-sm mb-2">國際精品電商平台，全通路視覺體驗改版</h3>
+                      <div class="case-card__bottom d-flex justify-between align-center mt-4">
+                        <p class="text-md text-neutral-500" style="max-width: 80%;">重塑品牌線上體驗，打造極致奢華、轉化率雙倍成長的數位購物旅程</p>
+                        <div class="case-btn-circle bg-neutral-900 text-white"><span class="material-symbols-outlined">arrow_forward</span></div>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="projects.html" class="case-card">
+                    <div class="case-card__image">
+                      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop" alt="旅遊 APP">
+                    </div>
+                    <div class="case-card__content text-neutral-900">
+                      <div class="case-card__meta d-flex justify-between align-center mb-2 text-sm text-neutral-500">
+                        <span>網頁設計 · APP 介面設計</span>
+                        <span>Jul 05, 2026</span>
+                      </div>
+                      <h3 class="title-sm mb-2">旅遊新創服務 APP，使用者介面體驗優化</h3>
+                      <div class="case-card__bottom d-flex justify-between align-center mt-4">
+                        <p class="text-md text-neutral-500" style="max-width: 80%;">以使用者情境為核心，簡化繁瑣的訂房流程，大幅降低購物車放棄率</p>
+                        <div class="case-btn-circle bg-neutral-900 text-white"><span class="material-symbols-outlined">arrow_forward</span></div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-section bg-primary-50">
+              <div class="container d-flex justify-between">
+                <div class="faq-title text-neutral-700">
+                  <p class="title-xxxs mb-2">F.A.Q</p>
+                  <h2 class="title-xxxl">常見問題</h2>
+                </div>
+                <div class="faq-list-container">
+                  <ul class="faq-list">
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">01</span>
+                        <h3 class="title-xxxs">網頁設計服務包含前端切版寫程式嗎？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">網頁設計階段僅包含 UI/UX 視覺設計與互動 Prototype 製作。若需要將設計稿轉換為實際的網頁程式碼，請參考「前端切版」與「後端開發」服務方案。</div>
+                      </div>
+                    </li>
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">02</span>
+                        <h3 class="title-xxxs">結案時會提供哪些設計軟體檔案？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">預設提供 Figma 檔案連結。檔案內將包含完整的頁面設計、RWD 斷點規範、以及可重複使用的 Design System (如色彩、字體、按鈕組件庫)，方便貴司未來的維護與擴充。</div>
+                      </div>
+                    </li>
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">03</span>
+                        <h3 class="title-xxxs">設計開始前，我們需要準備什麼資料？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">需要請您提供品牌 Logo 原始檔、網站基本文案 (或網站架構樹)、產品/服務的高畫質照片，以及 2~3 個您喜歡的參考網站風格，以利我們精準掌握設計方向。</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-content-block" id="content-frontend">
+            
+            <div class="service-steps">
+              <div class="container">
+                <div class="steps">
+                  <div class="steps-title">
+                    <p class="title-xxxs mb-2">SERVICE STEPS</p>
+                    <h2 class="title-xxxl">服務流程</h2>
+                  </div>
+                  <ol class="steps-list">
+                    <li>
+                      <div class="circle line title-xxxs">1</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">畫面解析與技術選型</h3>
+                        <p class="text-md text-neutral-500">評估設計稿複雜度，選擇最適合的現代化前端框架 (如 React, Vue) 與 CSS 工具，建立高效開發環境。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle line title-xxxs">2</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">響應式佈局與組件開發</h3>
+                        <p class="text-md text-neutral-500">實踐 Pixel-Perfect 畫素級切版，嚴格遵守 RWD 規範，並開發高度模組化、可重複使用的 UI 組件庫。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle line title-xxxs">3</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">動態互動與 API 串接</h3>
+                        <p class="text-md text-neutral-500">加入平滑的過場動畫與微互動體驗，並透過非同步技術 (AJAX/Fetch) 與後端 API 進行資料串接與狀態管理。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle title-xxxs">4</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">效能優化與跨平台檢測</h3>
+                        <p class="text-md text-neutral-500">進行 Lighthouse 效能跑分優化、SEO 語意化檢查，確保網站於各主流瀏覽器與裝置皆能流暢運行。</p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="user-case bg-neutral-0">
+              <div class="container">
+                <div class="user-case__header mb-6">
+                  <p class="title-xxxs mb-2 text-neutral-500">USER CASE</p>
+                  <h2 class="title-xxxl text-neutral-900">客戶案例</h2>
+                </div>
+                <div class="user-case__list">
+                  <a href="projects.html" class="case-card">
+                    <div class="case-card__image">
+                      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop" alt="戶外品牌網站">
+                    </div>
+                    <div class="case-card__content text-neutral-900">
+                      <div class="case-card__meta d-flex justify-between align-center mb-2 text-sm text-neutral-500">
+                        <span>前端切版 · 互動網頁</span>
+                        <span>May 20, 2026</span>
+                      </div>
+                      <h3 class="title-sm mb-2">知名戶外裝備品牌，沉浸式形象網站開發</h3>
+                      <div class="case-card__bottom d-flex justify-between align-center mt-4">
+                        <p class="text-md text-neutral-500" style="max-width: 80%;">大量運用 GSAP 與 Scroll 動畫，為靜態產品注入極致的視覺衝擊力與生命力</p>
+                        <div class="case-btn-circle bg-neutral-900 text-white"><span class="material-symbols-outlined">arrow_forward</span></div>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="projects.html" class="case-card">
+                    <div class="case-card__image">
+                      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop" alt="金融儀表板">
+                    </div>
+                    <div class="case-card__content text-neutral-900">
+                      <div class="case-card__meta d-flex justify-between align-center mb-2 text-sm text-neutral-500">
+                        <span>前端開發 · 數據視覺化</span>
+                        <span>Mar 15, 2026</span>
+                      </div>
+                      <h3 class="title-sm mb-2">金融科技企業，複雜數據儀表板 (Dashboard) 建置</h3>
+                      <div class="case-card__bottom d-flex justify-between align-center mt-4">
+                        <p class="text-md text-neutral-500" style="max-width: 80%;">整合 D3.js 與前端框架，將龐大繁雜的金融數據轉化為高效流暢的互動式圖表介面</p>
+                        <div class="case-btn-circle bg-neutral-900 text-white"><span class="material-symbols-outlined">arrow_forward</span></div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-section bg-primary-50">
+              <div class="container d-flex justify-between">
+                <div class="faq-title text-neutral-700">
+                  <p class="title-xxxs mb-2">F.A.Q</p>
+                  <h2 class="title-xxxl">常見問題</h2>
+                </div>
+                <div class="faq-list-container">
+                  <ul class="faq-list">
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">01</span>
+                        <h3 class="title-xxxs">開發主要使用什麼前端框架技術？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">會依據您的專案規模與需求進行評估，目前專精於 React.js、Vue.js 生態系，並熟練運用 Tailwind CSS 或 Sass 等樣式預處理工具進行高效切版。</div>
+                      </div>
+                    </li>
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">02</span>
+                        <h3 class="title-xxxs">前端切版會考慮到 SEO (搜尋引擎優化) 嗎？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">絕對會。開發過程嚴格遵守語意化 HTML 標籤（Semantic HTML）規範，正確使用 h1~h6、alt 屬性等，若專案需求強烈，也可評估採用 Next.js 或 Nuxt.js 等 SSR 技術提升 SEO 排名。</div>
+                      </div>
+                    </li>
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">03</span>
+                        <h3 class="title-xxxs">開發完成後，程式碼容易讓未來的工程師接手維護嗎？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">這是我最重視的環節。我會採用高內聚低耦合的模組化架構，並遵守 Clean Code 原則撰寫易讀的程式碼，結案時會附上基本的 README 架構說明文件，確保知識順暢移轉。</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-content-block" id="content-backend">
+            
+            <div class="service-steps">
+              <div class="container">
+                <div class="steps">
+                  <div class="steps-title">
+                    <p class="title-xxxs mb-2">SERVICE STEPS</p>
+                    <h2 class="title-xxxl">服務流程</h2>
+                  </div>
+                  <ol class="steps-list">
+                    <li>
+                      <div class="circle line title-xxxs">1</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">系統架構與資料庫設計</h3>
+                        <p class="text-md text-neutral-500">深度解析業務邏輯，規劃具備高可用性與擴展性的伺服器架構，並設計正規化且效能最佳化的資料表關聯。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle line title-xxxs">2</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">RESTful API 介面開發</h3>
+                        <p class="text-md text-neutral-500">遵循 REST 規範開發穩定高效的 API 供前端串接，並可依照專案需求整合第三方服務 (如：綠界金流、AWS S3)。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle line title-xxxs">3</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">資訊安全與權限管控</h3>
+                        <p class="text-md text-neutral-500">導入 JWT / OAuth 等安全驗證機制，嚴格把關使用者權限，並防範 SQL Injection 等常見的網路安全威脅。</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="circle title-xxxs">4</div>
+                      <div class="step-text">
+                        <h3 class="title-sm mb-2">雲端部署與自動化監控</h3>
+                        <p class="text-md text-neutral-500">將系統容器化 (Docker) 並部署至雲端主機 (AWS/GCP)，進行負載壓力測試，並建置錯誤監控與備份機制。</p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="user-case bg-neutral-0">
+              <div class="container">
+                <div class="user-case__header mb-6">
+                  <p class="title-xxxs mb-2 text-neutral-500">USER CASE</p>
+                  <h2 class="title-xxxl text-neutral-900">客戶案例</h2>
+                </div>
+                <div class="user-case__list">
+                  <a href="projects.html" class="case-card">
+                    <div class="case-card__image">
+                      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop" alt="訂餐系統後台">
+                    </div>
+                    <div class="case-card__content text-neutral-900">
+                      <div class="case-card__meta d-flex justify-between align-center mb-2 text-sm text-neutral-500">
+                        <span>後端開發 · 系統架構</span>
+                        <span>Nov 11, 2025</span>
+                      </div>
+                      <h3 class="title-sm mb-2">全台最大連鎖餐飲，線上訂餐與點數管理系統</h3>
+                      <div class="case-card__bottom d-flex justify-between align-center mt-4">
+                        <p class="text-md text-neutral-500" style="max-width: 80%;">打造高併發處理能力的訂餐後台架構，穩定消化週末午晚餐尖峰時段的海量訂單請求</p>
+                        <div class="case-btn-circle bg-neutral-900 text-white"><span class="material-symbols-outlined">arrow_forward</span></div>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="projects.html" class="case-card">
+                    <div class="case-card__image">
+                      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2000&auto=format&fit=crop" alt="教育平台後台">
+                    </div>
+                    <div class="case-card__content text-neutral-900">
+                      <div class="case-card__meta d-flex justify-between align-center mb-2 text-sm text-neutral-500">
+                        <span>後端開發 · 資料庫設計</span>
+                        <span>Sep 08, 2025</span>
+                      </div>
+                      <h3 class="title-sm mb-2">線上教育平台，影音串流加密與會員訂閱系統</h3>
+                      <div class="case-card__bottom d-flex justify-between align-center mt-4">
+                        <p class="text-md text-neutral-500" style="max-width: 80%;">建立高安全等級的影音防盜鏈傳輸機制，並串接綠界定期定額扣款實現會員訂閱制</p>
+                        <div class="case-btn-circle bg-neutral-900 text-white"><span class="material-symbols-outlined">arrow_forward</span></div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-section bg-primary-50">
+              <div class="container d-flex justify-between">
+                <div class="faq-title text-neutral-700">
+                  <p class="title-xxxs mb-2">F.A.Q</p>
+                  <h2 class="title-xxxl">常見問題</h2>
+                </div>
+                <div class="faq-list-container">
+                  <ul class="faq-list">
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">01</span>
+                        <h3 class="title-xxxs">主要使用什麼後端程式語言與資料庫？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">以 Node.js (Express) 為主要開發語言。資料庫部分會依據您的資料關聯性需求，選擇關聯式資料庫 (MySQL/PostgreSQL) 或是非關聯式資料庫 (MongoDB) 進行開發。</div>
+                      </div>
+                    </li>
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">02</span>
+                        <h3 class="title-xxxs">是否包含網站的伺服器代管與網域設定？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">專案報價可包含首年的 AWS 或 GCP 雲端環境建置、SSL 憑證申請與網域設定。期滿後可選擇簽訂年度維護合約，或完整轉交由貴司的 IT 團隊接手管理。</div>
+                      </div>
+                    </li>
+                    <li class="faq-item">
+                      <div class="faq-header">
+                        <span class="faq-num title-xxxs">03</span>
+                        <h3 class="title-xxxs">系統後續如果想增加新功能，容易擴充嗎？</h3>
+                        <span class="faq-arrow"></span>
+                      </div>
+                      <div class="faq-body">
+                        <div class="faq-content text-md text-neutral-500">這點您可以放心。系統架構設計初期，即會考量未來的業務增長潛力，採用模組化設計並預留 API 擴充接口，確保未來新增功能時不需要大幅度重構原有程式碼。</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+    </main>
+
+    <section class="contact bg-primary-900 text-white">
+    <div class="container">
+        <div class="contact__inner">
+      <div class="contact__text">
+        <div class="contact__header mb-6">
+          <p class="title-xxxs mb-2">與我聯絡</p>
+          <h2 class="title-xxxl">CONTACT</h2>
+        </div>
+        <p class="text-md mb-6">
+          若有數位產品設計和開發相關問題<br>
+          歡迎填寫表單 或 直接與我聯絡！
+        </p>
+      </div>
+      <form class="contact__form">
+        <div class="form-row d-flex">
+          <input class="form-input text-md" type="text" placeholder="姓名" required />
+          <input class="form-input text-md" type="tel" placeholder="手機號碼" required />
+        </div>
+        <input class="form-input text-md" type="email" placeholder="電子信箱" required />
+        <textarea class="form-textarea text-md" placeholder="備註"></textarea>
+        <button type="submit" class="btn bg-neutral-0 text-neutral-700 title-xxxs submit-btn">送出</button>
+      </form>
+      <div class="contact__social-group">
+        <div class="contact__socials d-flex align-center mb-4" style="gap: 12px;">
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-line"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="contact__email text-md d-flex align-center gap-2">
+          <span class="material-symbols-outlined" style="font-size: 20px;">mail</span> 
+          service@hexschool.com
+        </div>
+      </div>
+    </div>
+    </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({
+        duration: 1500, // 動畫長度 1.5 秒
+        once: true      
+    });
+    </script>
+    <script src="all.js"></script>
+
+</body>
+</html>

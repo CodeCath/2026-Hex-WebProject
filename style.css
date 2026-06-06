@@ -1818,3 +1818,372 @@ a { text-decoration: none; color: inherit; }
     height: 1px;
   }
 }
+
+
+/* =========================================
+   🔶 Services Page (服務項目專屬樣式)
+   ========================================= */
+
+/* --- 1. Hero Banner 區塊 --- */
+.services-hero {
+  /* 高度設定：保留足夠的空間容納大標題與下方的 Tabs */
+  height: 540px; 
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.services-title-group {
+  margin: 80px 0 40px 0; /* 🎯 標題與 Tab 的間距 40px */
+}
+
+/* --- 2. 服務 Tabs 區塊 --- */
+.services-tabs-container {
+  width: 100%;
+  max-width: 1076px; /* 🎯 總寬度 1076px */
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.services-tabs {
+  gap: 24px; /* 🎯 4 個 251px 的 Tab 中間剛好是 24px 間距 */
+}
+
+.service-tab {
+  flex: 0 0 251px; /* 🎯 精準寬度 251px */
+  height: 170px;   /* 🎯 精準高度 170px */
+  padding: 32px;   /* 🎯 精準內距 32px */
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  /* 預設狀態 (白底黑字) */
+  background-color: var(--color-neutral-0);
+  color: var(--color-neutral-900);
+}
+
+/* Hover 狀態 (#FDF7F1) */
+.service-tab:hover {
+  background-color: var(--color-primary-50);
+}
+
+/* 🎯 Active 選中狀態 (黑底白字) */
+.service-tab.active {
+  background-color: var(--color-primary-900);
+  color: var(--color-neutral-0);
+}
+
+/* --- Tabs 內部文字與 Icon 排版 --- */
+.service-tab .tab-icon {
+  font-size: 28px; /* 🎯 Icon 尺寸 */
+  margin-bottom: 8px;
+}
+
+.service-tab .tab-en {
+  font-size: 16px; /* 🎯 英文尺寸 */
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.service-tab .tab-tw {
+  font-size: 28px; /* 🎯 中文尺寸 */
+  font-weight: 700;
+}
+
+/* =========================================
+   📱 RWD: Services Tabs (平板與手機尺寸)
+   ========================================= */
+@media (max-width: 991.98px) {
+  /* 手機版：轉換為水平滑動選單 */
+  .services-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 8px; /* 給滾動條一點呼吸空間 */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .services-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .service-tab {
+    flex: 0 0 160px; /* 手機版稍微縮小 Tab 尺寸以利閱讀 */
+    height: 120px;
+    padding: 16px;
+  }
+  .service-tab .tab-en { font-size: 14px; }
+  .service-tab .tab-tw { font-size: 20px; }
+}
+
+/* =========================================
+   Services Content: 服務流程 (Service Steps)
+   ========================================= */
+
+/* =========================================
+   Services Content: 動態切換顯示邏輯
+   ========================================= */
+
+/* 1. 預設隱藏所有內容區塊 */
+.service-content-block {
+  display: none; 
+}
+
+/* 2. 只有帶有 active class 的區塊才會顯示，並觸發淡入上浮動畫！ */
+.service-content-block.active {
+  display: block; 
+  animation: fadeUp 1.5s ease-out forwards; /* 稍微加快一點點讓切換更俐落 */
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.service-steps {
+  padding: 80px 0;
+  /* 背景色 #24140b 已由外層的 bg-neutral-900 控制 */
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+}
+
+.steps-list {
+  width: 58%; /* 🎯 配合我們之前 Contact 表單右側的 58%，讓全站視覺對齊線更統一 */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0; /* 移除 ol 預設內距 */
+}
+
+.steps-list li {
+  display: flex;
+  gap: 24px;
+}
+
+/* 圓圈設定 */
+.steps-list .circle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-neutral-900);
+  background: var(--color-neutral-0);
+  width: 32px; /* 稍微縮小為 32px 配合我們字體系統的比例 */
+  height: 32px;
+  border-radius: 50%;
+}
+
+/* 🎯 你的連線魔法 */
+.steps-list .line::before {
+  content: '';
+  width: 1px; /* 1px 看起來會更精緻 */
+  height: 112px; /* 拉長一點，以防文字折行變高 */
+  background: var(--color-neutral-0);
+  position: absolute;
+  top: 32px; /* 從圓圈的正下方開始 */
+  left: 50%;
+  transform: translateX(-50%); /* 確保這條線絕對置中於圓圈 */
+}
+
+.step-text p {
+  line-height: 1.8;
+}
+
+/* =========================================
+   📱 RWD: Service Steps (平板與手機尺寸)
+   ========================================= */
+@media (max-width: 991.98px) {
+  .steps {
+    flex-direction: column;
+    gap: 48px;
+  }
+  .steps-list {
+    width: 100%; /* 手機版釋放 58% 的限制，佔滿全寬 */
+  }
+  .steps-list .line::before {
+    height: 140px; /* 手機版文字可能折更多行，線條加長防斷 */
+  }
+}
+
+
+/* =========================================
+   Services Content: 客戶案例 (User Case)
+   ========================================= */
+.user-case {
+  padding: 80px 0;
+}
+
+.user-case__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 🎯 完美切成兩等份 */
+  gap: 24px; /* 卡片間距 */
+}
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* 圖片與下方文字區塊的距離 */
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.case-card:hover {
+  opacity: 0.8;
+}
+
+.case-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 保持圖片比例一致 */
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.case-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 🎯 黑色圓圈箭頭按鈕設計 */
+.case-btn-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* 防止按鈕變形 */
+  transition: transform 0.3s ease;
+}
+
+/* Hover 卡片時，箭頭稍微往右移，增加互動感 */
+.case-card:hover .case-btn-circle {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   📱 RWD: User Case (平板與手機尺寸)
+   ========================================= */
+@media (max-width: 991.98px) {
+  .user-case {
+    padding: 60px 0;
+  }
+  
+  .user-case__list {
+    grid-template-columns: 1fr; /* 平板以下變為單欄堆疊 */
+    gap: 48px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .case-card__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .case-card__bottom p {
+    max-width: 100% !important; /* 手機版文字釋放寬度限制 */
+  }
+
+  .case-btn-circle {
+    align-self: flex-end; /* 手機版按鈕靠右下角 */
+  }
+}
+
+
+/* =========================================
+   Services Content: 常見問題 (FAQ)
+   ========================================= */
+.faq-section {
+  padding: 80px 0;
+  color: var(--color-neutral-700);
+}
+
+.faq-title {
+  flex: 0 0 calc(42% - 24px); /* 左側佔比，確保右側 58% 精準 */
+}
+
+/* 🎯 右側區塊寬度 58%，完美對齊全站版面 */
+.faq-list-container {
+  width: 58%; 
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-neutral-900); /* 底線顏色 */
+  padding: 24px 0;
+}
+
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.faq-header:hover {
+  opacity: 0.7;
+}
+
+/* 箭頭樣式與旋轉動畫 */
+.faq-arrow {
+  width: 12px;
+  height: 12px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg); /* 預設朝下 */
+  transition: transform 0.3s ease;
+  margin-left: auto; /* 將箭頭推到最右邊 */
+}
+
+/* 展開內容區的動畫設定 */
+.faq-body {
+  max-height: 0; 
+  overflow: hidden;
+  transition: max-height 0.4s ease-out; /* 滑動動畫 */
+}
+
+.faq-content {
+  padding-left: 36px; /* 避開數字的寬度 */
+  padding-top: 16px;
+  line-height: 1.8;
+}
+
+/* 🎯 Active 狀態切換 */
+.faq-item.active .faq-body {
+  max-height: 300px; /* 足夠容納長文字的高度 */
+}
+
+.faq-item.active .faq-arrow {
+  transform: rotate(-135deg); /* 箭頭朝上 */
+}
+
+/* =========================================
+   📱 RWD: FAQ 手機尺寸
+   ========================================= */
+@media (max-width: 991.98px) {
+  .faq-section .container {
+    flex-direction: column;
+    gap: 48px;
+  }
+  .faq-title,
+  .faq-list-container {
+    width: 100%;
+    flex: none;
+  }
+}
